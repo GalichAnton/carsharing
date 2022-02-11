@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 #linters
-.tsconfig.json
-.eslint.json
+tsconfig.json
+.eslintrc.json
