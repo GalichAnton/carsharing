@@ -1,0 +1,108 @@
+@import '../../styles/variables/variables';
+@import "../../styles/mixins/mixins";
+.main {
+  position: relative;
+  margin: 32px 64px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (min-width: 1441px) {
+    min-width: calc(100% - 48% - 64px - 64px);
+  }
+
+  @media screen and (min-width: 1201px) and (max-width: 1439px) {
+    min-width: calc(100% - 608px - 64px - 64px);
+  }
+
+  @media screen and (min-width: 1025px) and (max-width: 1200px) {
+    min-width: calc(100% - 410px - 64px - 64px);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    margin: 32px;
+  }
+
+  @media screen and (min-width: 0px) and (max-width: 767px) {
+    margin: 16px 0 0;
+    min-width: 100%;
+  }
+}
+
+.title__container {
+  display: flex;
+  flex-direction: column;
+  min-width: 560px;
+
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    min-width: 481px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    min-width: calc(100vw - 64px - 85px);
+  }
+
+  @media screen and (max-width: 767px) {
+    min-width: calc(100vw - 32px);
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 65px;
+  margin: 0;
+  @media screen and (max-width: 767px) {
+    margin: 0 16px 0;
+    font-size: 32px;
+    line-height: 100%;
+  }
+}
+
+.subtitle {
+  @extend .title;
+  color: $main-accent;
+  @media screen and (max-width: 425px) {
+    margin-top: 6px;
+  }
+}
+
+.descr {
+  color: $main-dark-grey;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 30px;
+  margin: 34px 0 60px;
+
+  @media screen and (max-width: 767px) {
+    margin: 16px 16px 32px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+.button {
+  @include button-state;
+  color:  #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 0;
+  max-width: 250px;
+  background: $btn;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 15px 0 11px;
+
+  @media screen and (min-width: 321px) and (max-width: 767px) {
+    max-width: 250px;
+    border-radius: 8px;
+    margin: 0 16px 0;
+  }
+
+  @media screen and (max-width: 320px) {
+    min-width: 100vw;
+    border-radius: 0;
+  }
+}

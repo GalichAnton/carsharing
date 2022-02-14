@@ -24,3 +24,4 @@ yarn-error.log*
 #linters
 tsconfig.json
 .eslintrc.json
+.stylelintrc.json

@@ -1,0 +1,53 @@
+@import "../../styles/variables/variables";
+@import "../../styles/mixins/mixins";
+.sidebar {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #151b1f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 16px;
+  overflow: hidden;
+  @media screen and (min-width: 0) and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.button__lang {
+  @extend .button;
+  @include hover-round;
+  color: $main-accent;
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+  border-radius: 50%;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 48px;
+  }
+}
+
+.button__img {
+  @include hover-svg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 42px;
+  }
+}

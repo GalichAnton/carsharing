@@ -1,0 +1,47 @@
+@import "../../styles/variables/variables";
+.footer {
+  margin: 0;
+  padding: 0;
+  @media screen  and (max-width: 767px) {
+    padding: 16px;
+    background-color: #151b1f;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (min-width: 0) and (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.name {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  margin: 0;
+  color: $main-dark-grey;
+  @media screen and (max-width: 767px) {
+    color: white;
+    align-self: flex-end;
+    order: 2;
+  }
+}
+
+.tel {
+  @extend .name;
+  color: $main-black;
+  text-decoration: none;
+  transition: $transition;
+  &:hover{
+    color: $main-accent;
+  }
+  @media screen and (max-width: 767px) {
+    color:  $main-light-grey;
+    align-self: flex-end;
+    order: 1;
+    margin-bottom: 8px;
+  }
+}
