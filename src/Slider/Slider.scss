@@ -1,0 +1,36 @@
+@import "../styles/variables/variables";
+.swiper-button-next {
+  color: #EEEEEE !important;
+  height: 100vh;
+  width: 64px !important;
+  transition: $transition;
+  position: relative;
+  right: 0 !important;
+  &:after{
+    transition: $transition;
+    width: 64px !important;
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &:hover{
+    &:after{
+      background: #0EC261;
+      opacity: 0.2;
+    }
+  }
+}
+.swiper-button-prev {
+  @extend .swiper-button-next;
+  left: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background: $main-light-grey !important;
+  &-active{
+    background: $main-accent !important;
+  }
+}

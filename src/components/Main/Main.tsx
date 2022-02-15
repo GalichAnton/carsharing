@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Main.module.scss";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+
 const Main = () => {
   return (
     <div className={classes.main}>
