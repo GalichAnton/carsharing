@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Carsharing/static/css/main.44b2365d.css",
-    "main.js": "/Carsharing/static/js/main.25ef7586.js",
-    "static/media/bg_4.jpg": "/Carsharing/static/media/bg_4.5ba1d885673bed82ebaf.jpg",
-    "static/media/bg_3.jpg": "/Carsharing/static/media/bg_3.3a3a5c53917e000b556c.jpg",
-    "static/media/bg_2.jpg": "/Carsharing/static/media/bg_2.e9908bfcc28b53dddf0a.jpg",
-    "static/media/bg_1.jpg": "/Carsharing/static/media/bg_1.21840eb5efc67eded7d3.jpg",
-    "static/media/Roboto-Medium.woff2": "/Carsharing/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
-    "static/media/Roboto-Bold.woff2": "/Carsharing/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
-    "static/media/Roboto-Regular.woff2": "/Carsharing/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
-    "static/media/Roboto-Light.woff2": "/Carsharing/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
-    "index.html": "/Carsharing/index.html",
-    "main.44b2365d.css.map": "/Carsharing/static/css/main.44b2365d.css.map",
-    "main.25ef7586.js.map": "/Carsharing/static/js/main.25ef7586.js.map"
+    "main.css": "/carsharing/static/css/main.412934e5.css",
+    "main.js": "/carsharing/static/js/main.a85fcfc3.js",
+    "static/media/bg_4.jpg": "/carsharing/static/media/bg_4.5ba1d885673bed82ebaf.jpg",
+    "static/media/bg_3.jpg": "/carsharing/static/media/bg_3.3a3a5c53917e000b556c.jpg",
+    "static/media/bg_2.jpg": "/carsharing/static/media/bg_2.e9908bfcc28b53dddf0a.jpg",
+    "static/media/bg_1.jpg": "/carsharing/static/media/bg_1.21840eb5efc67eded7d3.jpg",
+    "static/media/Roboto-Medium.woff2": "/carsharing/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
+    "static/media/Roboto-Bold.woff2": "/carsharing/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
+    "static/media/Roboto-Regular.woff2": "/carsharing/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
+    "static/media/Roboto-Light.woff2": "/carsharing/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
+    "index.html": "/carsharing/index.html",
+    "main.412934e5.css.map": "/carsharing/static/css/main.412934e5.css.map",
+    "main.a85fcfc3.js.map": "/carsharing/static/js/main.a85fcfc3.js.map"
   },
   "entrypoints": [
-    "static/css/main.44b2365d.css",
-    "static/js/main.25ef7586.js"
+    "static/css/main.412934e5.css",
+    "static/js/main.a85fcfc3.js"
   ]
 }
