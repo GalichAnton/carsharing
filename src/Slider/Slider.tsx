@@ -15,8 +15,6 @@ const Slider = () => {
       pagination={{ clickable: true }}
       spaceBetween={0}
       slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide.title}>
