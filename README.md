@@ -2,4 +2,4 @@
 
 ## Demo
 
-- [Carsharing](https://galichanton.github.io/Carsharing/)
+- [Carsharing](https://galichanton.github.io/carsharing/)
