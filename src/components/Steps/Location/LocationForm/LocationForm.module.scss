@@ -1,7 +1,7 @@
 @import "../../../../styles/variables/variables";
 
 .container {
-  display: inline-block;
+  margin-bottom: 32px;
 }
 
 .inputWrapper {
@@ -16,5 +16,10 @@
     font-family: RobotoLight, sans-serif;
     color: $main-black;
     margin-right: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @media screen and (min-width: 0) and (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 }

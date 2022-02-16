@@ -5,11 +5,9 @@ import Map from "./Map/Map";
 const Location = () => {
   return (
     <section className={classes.location}>
-      <div className={classes.container}>
-        <LocationForm />
-        <h3 className={classes.title}>Выбрать на карте:</h3>
-        <Map />
-      </div>
+      <LocationForm />
+      <h3 className={classes.title}>Выбрать на карте:</h3>
+      <Map />
     </section>
   );
 };

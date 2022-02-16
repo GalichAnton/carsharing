@@ -10,12 +10,21 @@
   display: flex;
   padding: 8px 0;
   align-items: center;
+  @media screen and (min-width: 0) and (max-width: 768px) {
+    padding: 4px 0;
+  }
 }
 
 .link {
   color: $main-dark-grey;
   font-weight: 700;
   text-decoration: none;
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 0) and (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 .link_active {
@@ -25,5 +34,11 @@
 }
 
 .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 15px;
+  @media screen and (min-width: 0) and (max-width: 768px) {
+    padding: 0 5px;
+  }
 }

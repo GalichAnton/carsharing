@@ -1,4 +1,12 @@
 .container {
   width: 736px;
   height: 352px;
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 536px;
+    height: 252px;
+  }
+  @media screen and (min-width: 0px) and (max-width: 768px) {
+    width: 90%;
+    height: 300px;
+  }
 }

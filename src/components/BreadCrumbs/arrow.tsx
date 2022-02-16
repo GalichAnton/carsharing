@@ -9,4 +9,5 @@ const arrow = (
     <path d="M0 0L6 4.03L0 8V0Z" fill="#999999" />
   </svg>
 );
+
 export default arrow;
