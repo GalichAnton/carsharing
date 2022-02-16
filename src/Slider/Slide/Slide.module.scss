@@ -24,11 +24,13 @@
 .article {
   max-width: 495px;
   z-index: 100;
+  margin: 0 32px 60px;
   &__title {
     color: white;
     font-weight: 500;
     font-size: 40px;
     line-height: 46px;
+    margin-top: 0;
     margin-bottom: 8px;
     @media screen and (min-width: 1025px) and (max-width: 1200px) {
       font-size: 32px;

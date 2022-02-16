@@ -1,11 +1,5 @@
-export interface INavMenuItem {
-  name: string;
-}
-export interface INavMenuIcon {
-  title: string;
-  image: JSX.Element;
-  url: string;
-}
+import { INavMenuIcon, INavMenuItem } from "./NavBarInterfaces";
+
 export const navMenuItems: INavMenuItem[] = [
   { name: "ПАРКОВКА" },
   { name: "СТРАХОВКА" },

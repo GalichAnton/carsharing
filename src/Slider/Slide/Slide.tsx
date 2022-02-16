@@ -1,28 +1,29 @@
 import React, { FC } from "react";
 import classes from "./Slide.module.scss";
-import { ISlide } from "../content/content";
-interface IProps {
+import { ISlide } from "../content/SlideInterfaces";
+import Button from "../../components/Button/Button";
+interface ISlideProps {
   slide: ISlide;
 }
-const Slide: FC<IProps> = ({ slide }) => {
+const Slide: FC<ISlideProps> = ({ slide }) => {
+  const { title, text, buttonColor, buttonName, background } = slide;
   return (
     <div
       className={classes.slide}
       style={{
-        backgroundImage: `url(${slide.background})`,
+        backgroundImage: `url(${background})`,
       }}
     >
       <article className={classes.article}>
-        <h2 className={classes.article__title}>{slide.title}</h2>
+        <h2 className={classes.article__title}>{title}</h2>
 
-        <p className={classes.article__descr}>{slide.text}</p>
+        <p className={classes.article__descr}>{text}</p>
 
-        <button
+        <Button
+          title={buttonName}
           className={classes.button}
-          style={{ background: `${slide.buttonColor}` }}
-        >
-          {slide.buttonName}
-        </button>
+          background={buttonColor}
+        />
       </article>
     </div>
   );

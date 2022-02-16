@@ -1,7 +1,7 @@
 import Main from "../../components/Main/Main";
 import SideBar from "../../components/SideBar/SideBar";
 import classes from "./MainPage.module.scss";
-import Modal from "../../components/Modal/Modal";
+import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import Slider from "../../Slider/Slider";
 const MainPage = () => {
   return (
@@ -9,7 +9,7 @@ const MainPage = () => {
       <SideBar />
       <Main />
       <Slider />
-      <Modal />
+      <BurgerMenu />
     </section>
   );
 };

@@ -1,13 +1,13 @@
 import classes from "./Header.module.scss";
 import burgerBlack from "./svg/burgerBlack";
 import pointImg from "./svg/pointImg";
-import { useAppDispatch } from "../../hooks/redux/redux-hooks";
-import { modalActions } from "../../store/Slices/ModalSlice";
+import { burgerActions } from "../../store/Slices/ModalSlice";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const openModal = () => {
-    dispatch(modalActions.setOpen(true));
+    dispatch(burgerActions.setOpen(true));
   };
   return (
     <header className={classes.header}>

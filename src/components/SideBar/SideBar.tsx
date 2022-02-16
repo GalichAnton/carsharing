@@ -1,16 +1,17 @@
 import React from "react";
 import classes from "./SideBar.module.scss";
 import burgerWhite from "./svg/burgerWhite";
-import { useAppDispatch } from "../../hooks/redux/redux-hooks";
-import { modalActions } from "../../store/Slices/ModalSlice";
+import { burgerActions } from "../../store/Slices/ModalSlice";
+import { useDispatch } from "react-redux";
 const SideBar = () => {
-  const dispatch = useAppDispatch();
-  const openModal = () => {
-    dispatch(modalActions.setOpen(true));
-  };
+  const dispatch = useDispatch();
+
   return (
     <div className={classes.sidebar}>
-      <button onClick={openModal} className={classes.button}>
+      <button
+        onClick={() => dispatch(burgerActions.setOpen(true))}
+        className={classes.button}
+      >
         <div className={classes.button__img}>{burgerWhite}</div>
       </button>
       <button className={classes.button__lang}>Eng</button>

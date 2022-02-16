@@ -5,5 +5,5 @@ export const store = configureStore({
     modalReducer: modal,
   },
 });
-export type AppDispatch = typeof store.dispatch;
+
 export type RootState = ReturnType<typeof store.getState>;

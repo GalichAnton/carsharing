@@ -1,17 +1,15 @@
 import React from "react";
-import classes from "./Modal.module.scss";
+import classes from "./BurgerMenu.module.scss";
 import NavBar from "./NavBar/NavBar";
 import { navMenuIcons, navMenuItems } from "./NavBar/NavBarItems";
 import cn from "classnames";
 import closeButton from "./NavBar/CloseButton";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux/redux-hooks";
-import { modalActions } from "../../store/Slices/ModalSlice";
-const Modal = () => {
-  const dispatch = useAppDispatch();
+import { useAppSelector } from "../../hooks/redux/redux-hooks";
+import { burgerActions } from "../../store/Slices/ModalSlice";
+import { useDispatch } from "react-redux";
+const BurgerMenu = () => {
+  const dispatch = useDispatch();
   const isOpen = useAppSelector((state) => state.modalReducer.isOpen);
-  const closeModal = () => {
-    dispatch(modalActions.setOpen(false));
-  };
   return (
     <section
       className={cn(classes.modal, {
@@ -19,7 +17,10 @@ const Modal = () => {
       })}
     >
       <div className={classes.wrapper}>
-        <button onClick={closeModal} className={classes.closeButton}>
+        <button
+          onClick={() => dispatch(burgerActions.setOpen(false))}
+          className={classes.closeButton}
+        >
           {closeButton}
         </button>
         <div className={classes.container}>
@@ -31,4 +32,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default BurgerMenu;

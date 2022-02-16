@@ -8,7 +8,7 @@ const initialState: IState = {
   isOpen: false,
 };
 
-const modalSlice = createSlice({
+const BurgerSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
@@ -18,5 +18,5 @@ const modalSlice = createSlice({
   },
 });
 
-export const modalActions = modalSlice.actions;
-export default modalSlice.reducer;
+export const burgerActions = BurgerSlice.actions;
+export default BurgerSlice.reducer;
