@@ -3,15 +3,19 @@ import Header from "../../components/Header/Header";
 import SideBar from "../../components/SideBar/SideBar";
 import Modal from "../../components/Modal/Modal";
 import { Outlet } from "react-router-dom";
-
+import classes from "./OrderPage.module.scss";
+import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 const OrderPage = () => {
   return (
-    <div>
-      <Header />
+    <section className={classes.container}>
       <SideBar />
-      <Outlet />
+      <div className={classes.content}>
+        <Header />
+        <BreadCrumbs />
+        <Outlet />
+      </div>
       <Modal />
-    </div>
+    </section>
   );
 };
 

@@ -1,0 +1,19 @@
+@import "../../../styles/variables/variables";
+
+.location {
+  display: flex;
+  justify-content: space-between;
+}
+.container{
+  padding-top: 32px;
+  border-right: 1px solid $main-light-grey;
+  flex: 1 1;
+  height: 80vh;
+}
+.title {
+  font-family: 'RobotoLight',sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: $main-black;
+  font-weight: 300;
+}

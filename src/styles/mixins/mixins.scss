@@ -11,6 +11,9 @@
   &:focus {
     filter: $btn-focus;
   }
+  &:disabled{
+    background: $main-light-grey;
+  }
 }
 
 @mixin active{

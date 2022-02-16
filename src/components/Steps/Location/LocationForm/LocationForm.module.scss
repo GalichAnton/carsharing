@@ -1,0 +1,18 @@
+@import "../../../../styles/variables/variables";
+.container {
+  display: inline-block;
+}
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  label {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 105px;
+    font-family: 'RobotoLight',sans-serif;
+    color: $main-black;
+    margin-right: 15px;
+  }
+}

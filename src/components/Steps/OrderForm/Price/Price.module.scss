@@ -1,0 +1,25 @@
+@import "../../../../styles/variables/variables";
+.price{
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title{
+  font-family: 'RobotoMedium',sans-serif;
+  font-weight: 700;
+  color: $main-black;
+  margin: 0;
+  font-size: 15px;
+}
+
+.range {
+  display: flex;
+  font-family: 'RobotoRegular',sans-serif;
+  font-weight: 400;
+  color: $main-black;
+}
+
+.number{
+  margin: 0 5px;
+}

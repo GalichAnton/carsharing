@@ -1,0 +1,26 @@
+@import "../../styles/variables/variables";
+.container {
+  position: relative;
+}
+
+.input {
+  width: 225px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $main-light-grey;
+  color: $main-black;
+  padding: 3px 0;
+  &:hover {
+    border-bottom: 1px solid $main-dark-grey;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  cursor: pointer;
+  &:hover {
+    opacity: .9;
+  }
+}

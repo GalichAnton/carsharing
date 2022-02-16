@@ -8,6 +8,7 @@ const Main = () => {
   return (
     <div className={classes.main}>
       <Header />
+
       <main className={classes.container}>
         <h1 className={classes.title}>Каршеринг</h1>
         <h2 className={classes.subtitle}>Need for drive</h2>

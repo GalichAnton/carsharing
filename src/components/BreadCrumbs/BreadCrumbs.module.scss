@@ -1,0 +1,27 @@
+@import "../../styles/variables/variables";
+.breadCrumbs{
+  border-bottom: 1px solid $main-light-grey;
+  border-top: 1px solid $main-light-grey;
+  margin: 32px -100px 0;
+  padding: 0 100px;
+}
+.container{
+  display: flex;
+  padding: 8px 0;
+  align-items: center;
+}
+
+.link{
+  color: $main-dark-grey;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link_active{
+  @extend .link;
+  color: $main-accent;
+}
+
+.arrow{
+  padding: 0 15px;
+}
