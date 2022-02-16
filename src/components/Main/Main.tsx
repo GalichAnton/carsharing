@@ -12,6 +12,7 @@ const Main = () => {
         <h1 className={classes.title}>Каршеринг</h1>
         <h2 className={classes.subtitle}>Need for drive</h2>
         <p className={classes.descr}>Поминутная аренда авто твоего города</p>
+
         <Button title={"Забронировать"} className={classes.button} />
       </main>
       <Footer />
