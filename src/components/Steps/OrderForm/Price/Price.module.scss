@@ -1,12 +1,13 @@
 @import "../../../../styles/variables/variables";
-.price{
+
+.price {
   display: flex;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.title{
-  font-family: 'RobotoMedium',sans-serif;
+.title {
+  font-family: RobotoMedium, sans-serif;
   font-weight: 700;
   color: $main-black;
   margin: 0;
@@ -15,11 +16,11 @@
 
 .range {
   display: flex;
-  font-family: 'RobotoRegular',sans-serif;
+  font-family: RobotoRegular, sans-serif;
   font-weight: 400;
   color: $main-black;
 }
 
-.number{
+.number {
   margin: 0 5px;
 }

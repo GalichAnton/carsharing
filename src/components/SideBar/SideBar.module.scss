@@ -1,5 +1,6 @@
 @import "../../styles/variables/variables";
 @import "../../styles/mixins/mixins";
+
 .sidebar {
   box-sizing: border-box;
   position: relative;
@@ -28,6 +29,7 @@
 .button__lang {
   @extend .button;
   @include hover-round;
+
   color: $main-accent;
   align-self: center;
   width: 32px;
@@ -43,6 +45,7 @@
 
 .button__img {
   @include hover-svg;
+
   display: flex;
   justify-content: center;
   align-items: center;

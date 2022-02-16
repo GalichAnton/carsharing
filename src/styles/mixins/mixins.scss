@@ -5,21 +5,25 @@
   &:hover {
     filter: $btn-hover;
   }
+
   &:active {
     filter: $btn-active;
   }
+
   &:focus {
     filter: $btn-focus;
   }
-  &:disabled{
+
+  &:disabled {
     background: $main-light-grey;
   }
 }
 
-@mixin active{
+@mixin active {
   visibility: hidden;
   opacity: 0;
-  &_active{
+
+  &_active {
     visibility: visible;
     opacity: 1;
   }
@@ -30,12 +34,13 @@
 
   &:hover {
     color: white;
-    border: 1px solid #eeeeee;
+    border: 1px solid #eee;
     box-sizing: border-box;
     border-radius: 50%;
   }
+
   &:focus {
-    border: 1px solid #eeeeee;
+    border: 1px solid #eee;
     box-sizing: border-box;
     border-radius: 50%;
     color: $main-accent;
@@ -43,9 +48,10 @@
 }
 
 @mixin hover-svg {
-  path{
+  path {
     transition: $transition;
   }
+
   :hover path {
     stroke: $main-accent;
   }
