@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import classes from "./Slide.module.scss";
 import { ISlide } from "../content/SlideInterfaces";
-import Button from "../../components/Button/Button";
+import Button from "../../Button/Button";
 interface ISlideProps {
   slide: ISlide;
 }

@@ -1,4 +1,4 @@
-@import '../../styles/variables/variables';
+@import '../../../styles/variables/variables';
 .slide {
   height: 100vh;
   width: 100%;
@@ -54,14 +54,7 @@
 }
 
 .button {
-  color: white;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
   min-width: 164px;
-  border: none;
-  cursor: pointer;
-  max-width: 164px;
   border-radius: 4px;
   padding: 15px;
   margin: 0;

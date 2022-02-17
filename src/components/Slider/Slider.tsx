@@ -12,6 +12,7 @@ const Slider = () => {
   return (
     <Swiper
       navigation
+      loop={true}
       pagination={{ clickable: true }}
       spaceBetween={0}
       slidesPerView={1}

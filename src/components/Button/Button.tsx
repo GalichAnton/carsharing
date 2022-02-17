@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-
+import cn from "classnames";
+import classes from "./Button.module.scss";
 interface IButtonProps {
   title: string;
   onClick?: () => void;
@@ -13,7 +14,7 @@ const Button: FC<IButtonProps> = (props) => {
     <button
       disabled={disabled}
       onClick={onClick}
-      className={className}
+      className={cn(classes.button, className)}
       style={{ background: `${background}` }}
     >
       {title}
