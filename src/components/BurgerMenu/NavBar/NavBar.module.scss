@@ -1,0 +1,66 @@
+@import "../../../styles/variables/variables";
+@import "../../../styles/mixins/mixins";
+.navbar__items {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-content: space-between;
+}
+
+.navbar__item {
+  color: white;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  text-align: left;
+  align-self: flex-start;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transition: $transition;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  &:hover {
+    color: $main-accent;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+  }
+  @media screen and (min-width: 0) and (max-width: 767px) {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+.navbar__icons {
+  @extend .navbar__items;
+  flex-direction: row;
+  margin-top: 38px;
+}
+
+.navbar__icon_img {
+  width: 32px;
+  height: 32px;
+  :last-of-type {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  path{
+    transition: $transition;
+  }
+  :hover path {
+    fill: $main-accent;
+  }
+}
+
+.navbar__icon {
+  @extend .navbar__item;
+  margin-bottom: 0px;
+  margin-right: 24px;
+  font-size: 0px;
+  line-height: 0px;
+}

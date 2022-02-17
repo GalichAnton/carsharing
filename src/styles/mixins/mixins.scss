@@ -1,0 +1,49 @@
+@import "../variables/variables";
+@mixin button-state {
+  transition: $transition;
+
+  &:hover {
+    filter: $btn-hover;
+  }
+  &:active {
+    filter: $btn-active;
+  }
+  &:focus {
+    filter: $btn-focus;
+  }
+}
+
+@mixin active{
+  visibility: hidden;
+  opacity: 0;
+  &_active{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@mixin hover-round {
+  transition: $transition;
+
+  &:hover {
+    color: white;
+    border: 1px solid #eeeeee;
+    box-sizing: border-box;
+    border-radius: 50%;
+  }
+  &:focus {
+    border: 1px solid #eeeeee;
+    box-sizing: border-box;
+    border-radius: 50%;
+    color: $main-accent;
+  }
+}
+
+@mixin hover-svg {
+  path{
+    transition: $transition;
+  }
+  :hover path {
+    stroke: $main-accent;
+  }
+}
