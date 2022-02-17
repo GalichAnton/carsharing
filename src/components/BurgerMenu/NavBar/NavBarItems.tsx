@@ -1,4 +1,7 @@
-import { INavMenuIcon, INavMenuItem } from "./NavBarInterfaces";
+import {
+  INavMenuIcon,
+  INavMenuItem,
+} from "../../../Interfaces/NavBarInterfaces";
 
 export const navMenuItems: INavMenuItem[] = [
   { name: "ПАРКОВКА" },

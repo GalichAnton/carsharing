@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "../../../Input/Input";
+import { Input } from "../../../UI/Inputs/Input";
 import classes from "./LocationForm.module.scss";
 const LocationForm = () => {
   return (

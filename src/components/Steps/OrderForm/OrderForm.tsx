@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import classes from "./OrderForm.module.scss";
 import OrderItem, { IOrderItem } from "./OrderItem/OrderItem";
 import Price from "./Price/Price";
+import Button from "../../UI/Button/Button";
 
 interface IProps {
   orderItems: IOrderItem[];
@@ -25,7 +26,7 @@ const OrderForm: FC<IProps> = ({ orderItems, startPrice, endPrice }) => {
           </div>
         )}
 
-        <button className={classes.button}>Выбрать модель</button>
+        <Button title={"Выбрать модель"} className={classes.button} />
       </div>
     </form>
   );

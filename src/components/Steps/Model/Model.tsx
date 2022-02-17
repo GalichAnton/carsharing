@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModelList from "./ModelList/ModelList";
 import { models } from "./content/Models";
-import { IModel } from "./content/ModelInterface";
+import { IModel } from "../../../Interfaces/ModelInterface";
 import classes from "./Model.module.scss";
 import RadioGroup from "../../UI/RadioGroup/RadioGroup";
 

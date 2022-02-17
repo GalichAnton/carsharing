@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classes from "./RadioGroup.module.scss";
-import RadioButton from "../../Input/RadioButton/RadioButton";
+import RadioButton from "../Inputs/RadioButton/RadioButton";
 interface IRadioGroupProps {
   buttons: string[];
   selected: string;

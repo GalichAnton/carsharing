@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classes from "./ModelList.module.scss";
-import { IModel } from "../content/ModelInterface";
+import { IModel } from "../../../../Interfaces/ModelInterface";
 import ModelItem from "../ModelItem/ModelItem";
 interface IModelListProps {
   models: IModel[];

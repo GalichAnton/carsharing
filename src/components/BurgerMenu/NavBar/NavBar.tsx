@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import classes from "./NavBar.module.scss";
-import { INavMenuIcon, INavMenuItem } from "./NavBarInterfaces";
+import {
+  INavMenuIcon,
+  INavMenuItem,
+} from "../../../Interfaces/NavBarInterfaces";
 
 interface INavBarProps {
   icons: INavMenuIcon[];

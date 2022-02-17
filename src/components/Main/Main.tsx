@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Main.module.scss";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 const Main = () => {

@@ -2,7 +2,7 @@ import elentra from "../../../../assets/images/models/elantra.png";
 import i30 from "../../../../assets/images/models/i30.png";
 import creta from "../../../../assets/images/models/creta.png";
 import sonata from "../../../../assets/images/models/sonata.png";
-import { IModel } from "./ModelInterface";
+import { IModel } from "../../../../Interfaces/ModelInterface";
 
 export const models: IModel[] = [
   {
