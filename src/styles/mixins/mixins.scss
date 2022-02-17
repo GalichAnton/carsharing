@@ -3,13 +3,13 @@
   transition: $transition;
 
   &:hover {
-    background: $btn-hover;
+    filter: $btn-hover;
   }
   &:active {
-    background: $btn-active;
+    filter: $btn-active;
   }
   &:focus {
-    background: $btn-focus;
+    filter: $btn-focus;
   }
 }
 
