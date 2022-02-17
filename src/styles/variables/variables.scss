@@ -1,1 +1,13 @@
-$main-color: #0EC261;
+$main-accent: #0EC261;
+$main-black: #121212;
+$main-dark-grey: #999;
+$main-light-grey:#EEEEEE;
+
+/*btn_colors*/
+$btn: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+$btn-hover: brightness(0.9);
+$btn-focus: brightness(0.8);
+$btn-active: brightness(0.9);
+/*transition*/
+$transition: all 0.3s ease-in-out;
+
