@@ -1,0 +1,19 @@
+@import "../../../styles/variables/variables";
+.model {
+  display: flex;
+  padding-top: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1;
+  height: 80vh;
+  overflow: auto;
+  border-right: 1px solid $main-light-grey;
+  &::-webkit-scrollbar { width: 0; }
+  &__radio{
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: 0px) and (max-width: 768px) {
+    align-items: center;
+    border-right: none;
+  }
+}
