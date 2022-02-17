@@ -4,14 +4,16 @@ import classes from "./Input.module.scss";
 interface IProps {
   placeholder: string;
   name: string;
+  type: string;
 }
 
-export const Input: FC<IProps> = ({ placeholder, name }) => {
+export const Input: FC<IProps> = ({ placeholder, name, type }) => {
   const [value, setValue] = useState("");
 
   return (
     <div className={classes.container}>
       <input
+        type={type}
         name={name}
         className={classes.input}
         placeholder={placeholder}
