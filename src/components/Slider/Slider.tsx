@@ -12,6 +12,8 @@ const Slider = () => {
   return (
     <Swiper
       navigation
+      observer={true}
+      observeParents={true}
       loop={true}
       pagination={{ clickable: true }}
       spaceBetween={0}
