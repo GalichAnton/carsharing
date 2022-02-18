@@ -12,6 +12,7 @@
 .container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   @media screen and (min-width: 0) and (max-width: 767px) {
     position: relative;
     flex-direction: column;

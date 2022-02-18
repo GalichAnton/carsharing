@@ -13,7 +13,10 @@ const OrderPage = () => {
     <section className={classes.container}>
       <SideBar />
       <div className={classes.content}>
-        <Header />
+        <div className={classes.headerWrapper}>
+          {" "}
+          <Header />
+        </div>
         <BreadCrumbs />
         <div className={classes.wrapper}>
           <Outlet />

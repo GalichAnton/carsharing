@@ -26,7 +26,11 @@ const OrderForm: FC<IProps> = ({ orderItems, startPrice, endPrice }) => {
           </div>
         )}
 
-        <Button title={"Выбрать модель"} className={classes.button} />
+        <Button
+          disabled={true}
+          title={"Выбрать модель"}
+          className={classes.button}
+        />
       </div>
     </form>
   );

@@ -3,7 +3,16 @@
 .breadCrumbs {
   border-bottom: 1px solid $main-light-grey;
   border-top: 1px solid $main-light-grey;
-  margin: 32px 0 0;
+  padding-left: 128px;
+  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    padding-left: 64px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding-left: 32px;
+  }
+  @media screen  and (max-width: 768px) {
+    padding-left: 12px;
+  }
 }
 
 .container {
@@ -22,8 +31,11 @@
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     font-size: 14px;
   }
-  @media screen and (min-width: 0) and (max-width: 768px) {
+  @media screen and (min-width: 425px) and (max-width: 768px) {
     font-size: 12px;
+  }
+  @media screen and (min-width: 0) and (max-width: 425px) {
+    font-size: 10px;
   }
 }
 

@@ -1,21 +1,21 @@
 @import "../variables/variables";
 @mixin button-state {
   transition: $transition;
-
-  &:hover {
-    filter: $btn-hover;
-  }
-
-  &:active {
-    filter: $btn-active;
-  }
-
-  &:focus {
-    filter: $btn-focus;
-  }
-
   &:disabled {
     background: $main-light-grey;
+  }
+  &[type="button"]:enabled {
+    &:hover {
+      filter: $btn-hover;
+    }
+
+    &:active {
+      filter: $btn-active;
+    }
+
+    &:focus {
+      filter: $btn-focus;
+    }
   }
 }
 
