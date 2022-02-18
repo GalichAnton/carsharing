@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/carsharing/static/css/main.412cb32d.css",
-    "main.js": "/carsharing/static/js/main.0a9dc2cf.js",
+    "main.css": "/carsharing/static/css/main.29b80d24.css",
+    "main.js": "/carsharing/static/js/main.b7658695.js",
     "static/media/bg_4.jpg": "/carsharing/static/media/bg_4.5ba1d885673bed82ebaf.jpg",
     "static/media/bg_3.jpg": "/carsharing/static/media/bg_3.3a3a5c53917e000b556c.jpg",
     "static/media/bg_2.jpg": "/carsharing/static/media/bg_2.e9908bfcc28b53dddf0a.jpg",
@@ -10,12 +10,16 @@
     "static/media/Roboto-Bold.woff2": "/carsharing/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
     "static/media/Roboto-Regular.woff2": "/carsharing/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
     "static/media/Roboto-Light.woff2": "/carsharing/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
+    "static/media/creta.png": "/carsharing/static/media/creta.4938ffbb35fda6b8b88a.png",
+    "static/media/sonata.png": "/carsharing/static/media/sonata.b3aa49f50473d57f0134.png",
+    "static/media/i30.png": "/carsharing/static/media/i30.8e447acd8b79cad23dfa.png",
+    "static/media/elantra.png": "/carsharing/static/media/elantra.436bdf3ec93413726b38.png",
     "index.html": "/carsharing/index.html",
-    "main.412cb32d.css.map": "/carsharing/static/css/main.412cb32d.css.map",
-    "main.0a9dc2cf.js.map": "/carsharing/static/js/main.0a9dc2cf.js.map"
+    "main.29b80d24.css.map": "/carsharing/static/css/main.29b80d24.css.map",
+    "main.b7658695.js.map": "/carsharing/static/js/main.b7658695.js.map"
   },
   "entrypoints": [
-    "static/css/main.412cb32d.css",
-    "static/js/main.0a9dc2cf.js"
+    "static/css/main.29b80d24.css",
+    "static/js/main.b7658695.js"
   ]
 }
