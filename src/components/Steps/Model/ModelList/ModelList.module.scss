@@ -25,7 +25,7 @@
 }
 
 .wrapper{
-  height: 75%;
+  height: 100%;
   overflow: auto;
   &::-webkit-scrollbar { width: 0; }
   @media (max-width: 768px) {
