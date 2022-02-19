@@ -2,7 +2,7 @@ import bg1 from "../../../assets/images/slider/bg_1.jpg";
 import bg2 from "../../../assets/images/slider/bg_2.jpg";
 import bg3 from "../../../assets/images/slider/bg_3.jpg";
 import bg4 from "../../../assets/images/slider/bg_4.jpg";
-import { ISlide } from "../../../Interfaces/SlideInterfaces";
+import { ISlide } from "./SlideInterfaces";
 
 export const slides: ISlide[] = [
   {

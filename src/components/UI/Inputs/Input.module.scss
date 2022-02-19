@@ -11,7 +11,9 @@
   border-bottom: 1px solid $main-light-grey;
   color: $main-black;
   padding: 3px 0;
-
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
   &:hover {
     border-bottom: 1px solid $main-dark-grey;
   }

@@ -7,6 +7,7 @@ import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import OrderForm from "../../components/Steps/OrderForm/OrderForm";
 import { IOrderItem } from "../../components/Steps/OrderForm/OrderItem/OrderItem";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
+import { crumbItems } from "../../components/BreadCrumbs/constants";
 const OrderPage = () => {
   const orderItem: IOrderItem[] = [{ title: "Пункт", info: "Санкт-Петербург" }];
   return (
@@ -17,7 +18,7 @@ const OrderPage = () => {
           {" "}
           <Header />
         </div>
-        <BreadCrumbs />
+        <BreadCrumbs items={crumbItems} />
         <div className={classes.wrapper}>
           <Outlet />
           <OrderForm

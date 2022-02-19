@@ -12,7 +12,7 @@ const RadioButton: FC<IRadioButtonProps> = ({
 }) => {
   return (
     <div className={classes.radioContainer}>
-      <form className={classes.form}>
+      <div className={classes.form}>
         <input
           className={classes.input}
           checked={checked}
@@ -29,7 +29,7 @@ const RadioButton: FC<IRadioButtonProps> = ({
         >
           {value}
         </label>
-      </form>
+      </div>
     </div>
   );
 };

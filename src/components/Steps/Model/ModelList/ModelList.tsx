@@ -13,16 +13,18 @@ const ModelList: FC<IModelListProps> = ({
   onSelectModel,
 }) => {
   return (
-    <ul className={classes.modelList}>
-      {models.map((model, i) => (
-        <ModelItem
-          key={i}
-          model={model}
-          selected={selected === model}
-          onSelectModel={onSelectModel}
-        />
-      ))}
-    </ul>
+    <div className={classes.wrapper}>
+      <ul className={classes.modelList}>
+        {models.map((model, i) => (
+          <ModelItem
+            key={i}
+            model={model}
+            selected={selected === model}
+            onSelectModel={onSelectModel}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };
 

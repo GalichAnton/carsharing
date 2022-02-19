@@ -13,6 +13,7 @@
   @media screen  and (max-width: 768px) {
     padding-left: 12px;
   }
+
 }
 
 .container {
@@ -41,8 +42,12 @@
 
 .link_active {
   @extend .link;
-
   color: $main-accent;
+}
+
+.link_filled{
+  @extend .link;
+  color: $main-black;
 }
 
 .arrow {
@@ -50,7 +55,16 @@
   align-items: center;
   justify-content: center;
   padding: 0 15px;
+  &__last{
+    display: none;
+  }
   @media screen and (min-width: 0) and (max-width: 768px) {
     padding: 0 5px;
   }
+}
+
+
+
+.link__wrapper{
+  display: flex;
 }

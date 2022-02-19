@@ -4,11 +4,11 @@ import { models } from "./content/Models";
 import { IModel } from "../../../Interfaces/ModelInterface";
 import classes from "./Model.module.scss";
 import RadioGroup from "../../UI/RadioGroup/RadioGroup";
-
+const radioGroup = ["Все модели", "Эконом", "Премиум"];
 const Model = () => {
   const [selectedButton, setSelectedButton] = useState<string>("Все модели");
   const [selectedModel, setSelectedModel] = useState<IModel>();
-  const radioGroup = ["Все модели", "Эконом", "Премиум"];
+
   const handleSelect = (model: IModel) => {
     setSelectedModel(model);
   };

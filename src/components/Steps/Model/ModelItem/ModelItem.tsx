@@ -7,7 +7,8 @@ interface IModelItemProps {
   selected?: boolean;
   onSelectModel: (model: IModel) => void;
 }
-const ModelItem: FC<IModelItemProps> = ({ model, selected, onSelectModel }) => {
+const ModelItem: FC<IModelItemProps> = (props) => {
+  const { model, selected, onSelectModel } = props;
   return (
     <div
       onClick={() => onSelectModel(model)}
