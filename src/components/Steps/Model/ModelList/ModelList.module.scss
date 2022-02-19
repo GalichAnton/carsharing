@@ -29,6 +29,6 @@
   overflow: auto;
   &::-webkit-scrollbar { width: 0; }
   @media (max-width: 768px) {
-    height: 100vh;
+    height: 55vh;
   }
 }
