@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+  &__vertical{
+    flex-direction: column;
+    & > * {
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
+    }
+  }
+}

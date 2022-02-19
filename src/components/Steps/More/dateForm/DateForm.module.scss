@@ -1,0 +1,31 @@
+@import "../../../../styles/variables/variables";
+
+.container {
+  margin-bottom: 32px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  label {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 105px;
+    font-family: RobotoLight, sans-serif;
+    color: $main-black;
+    margin-right: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @media screen and (min-width: 0) and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.title {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
