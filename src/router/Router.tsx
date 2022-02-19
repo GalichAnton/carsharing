@@ -1,12 +1,12 @@
 import React from "react";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "../pages/MainPage/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import Location from "../components/Steps/Location/Location";
 import Model from "../components/Steps/Model/Model";
 
 const Router = () => (
-  <HashRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="order/" element={<OrderPage />}>
@@ -17,7 +17,7 @@ const Router = () => (
         {/* <Route path=' :id' element={<Total />} />*/}
       </Route>
     </Routes>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default Router;

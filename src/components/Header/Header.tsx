@@ -3,6 +3,7 @@ import burgerBlack from "./svg/burgerBlack";
 import pointImg from "./svg/pointImg";
 import { burgerActions } from "../../store/Slices/ModalSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,9 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.container}>
-        <h2 className={classes.title}>Need for drive</h2>
+        <Link to={"/"} className={classes.title}>
+          Need for drive
+        </Link>
         <div className={classes.place__container}>
           <button onClick={openModal} className={classes.button}>
             {burgerBlack}

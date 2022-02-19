@@ -6,9 +6,7 @@
   align-items: flex-start;
   flex: 1 1;
   height: 80vh;
-  overflow: auto;
   border-right: 1px solid $main-light-grey;
-  &::-webkit-scrollbar { width: 0; }
   &__radio{
     margin-bottom: 48px;
   }
