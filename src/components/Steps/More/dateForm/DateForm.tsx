@@ -10,7 +10,7 @@ const DateForm = () => {
           С
         </label>
 
-        <Input onFocus={true} name="from" placeholder="Введите дату и время" />
+        <Input name="from" placeholder="Введите дату и время" />
       </div>
 
       <div className={classes.inputWrapper}>
@@ -18,7 +18,7 @@ const DateForm = () => {
           По
         </label>
 
-        <Input onFocus={true} name="to" placeholder="Введите дату и время" />
+        <Input name="to" placeholder="Введите дату и время" />
       </div>
     </form>
   );

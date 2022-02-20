@@ -1,31 +1,25 @@
-import React, { FC, FocusEvent, useState } from "react";
+import React, { FC, useState } from "react";
 import CloseBtn from "./CloseBtn";
 import classes from "./Input.module.scss";
+import cn from "classnames";
 interface IProps {
   placeholder: string;
   name: string;
-  onFocus?: boolean;
-  pattern?: string;
 }
 
 export const Input: FC<IProps> = (props) => {
-  const { placeholder, name, onFocus, pattern } = props;
+  const { placeholder, name } = props;
   const [value, setValue] = useState("");
-  const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
-    if (onFocus) {
-      e.target.type = "datetime-local";
-    }
+  const [type, setType] = useState("text");
+  const handleFocus = () => {
+    setType("datetime-local");
   };
-  const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
-    e.target.type = "text";
-  };
+
   return (
     <div className={classes.container}>
       <input
-        pattern={pattern}
-        type={"text"}
+        type={type}
         onFocus={handleFocus}
-        onBlur={handleBlur}
         name={name}
         className={classes.input}
         placeholder={placeholder}
@@ -33,7 +27,12 @@ export const Input: FC<IProps> = (props) => {
         onChange={(e) => setValue(e.currentTarget.value)}
       />
 
-      <span className={classes.close} onClick={() => setValue("")}>
+      <span
+        className={cn(classes.close, {
+          [classes.close__date]: type === "datetime-local",
+        })}
+        onClick={() => setValue("")}
+      >
         {value !== "" && CloseBtn}
       </span>
     </div>

@@ -24,7 +24,9 @@
   right: 10px;
   bottom: 5px;
   cursor: pointer;
-
+  &__date{
+    right: 25px;
+  }
   &:hover {
     opacity: 0.9;
   }
