@@ -1,15 +1,18 @@
 @import "../../styles/variables/variables";
 @import "../../styles/mixins/mixins";
+
 .header {
   margin: 0;
   padding: 0;
   @media screen and (max-width: 767px) {
-    margin: 0 16px 0px;
+    margin: 0 16px;
   }
 }
+
 .container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   @media screen and (min-width: 0) and (max-width: 767px) {
     position: relative;
     flex-direction: column;
@@ -19,11 +22,11 @@
 .button {
   display: none;
   @include hover-svg;
-  @media screen  and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     display: block;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     background-color: inherit;
     cursor: pointer;
     border: none;
@@ -37,6 +40,7 @@
   font-size: 30px;
   line-height: 35px;
   margin: 0;
+  text-decoration: none;
   @media screen and (max-width: 767px) {
     align-self: flex-end;
     margin-bottom: 8px;
@@ -52,14 +56,16 @@
     align-self: flex-end;
   }
 }
+
 .place__img {
   width: 18px;
   height: 18px;
   margin-bottom: 5px;
   align-self: center;
 }
+
 .place__name {
-  color:$main-dark-grey;
+  color: $main-dark-grey;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;

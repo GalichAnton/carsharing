@@ -1,4 +1,5 @@
-@import '../../../styles/variables/variables';
+@import "../../../styles/variables/variables";
+
 .slide {
   height: 100vh;
   width: 100%;
@@ -10,14 +11,15 @@
   background-position: center;
   position: relative;
   z-index: 10;
-  &:after {
-    content: '';
+
+  &::after {
+    content: "";
     position: absolute;
     height: 100%;
     width: 100%;
-    top:0;
-    left:0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, #000 100%);
   }
 }
 
@@ -25,6 +27,7 @@
   max-width: 495px;
   z-index: 100;
   margin: 0 32px 60px;
+
   &__title {
     color: white;
     font-weight: 500;
@@ -37,8 +40,9 @@
       line-height: 37px;
     }
   }
+
   &__descr {
-    margin:0 0 32px;
+    margin: 0 0 32px;
     line-height: 24px;
     font-size: 24px;
     color: $main-light-grey;
@@ -54,7 +58,14 @@
 }
 
 .button {
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
   min-width: 164px;
+  border: none;
+  cursor: pointer;
+  max-width: 164px;
   border-radius: 4px;
   padding: 15px;
   margin: 0;

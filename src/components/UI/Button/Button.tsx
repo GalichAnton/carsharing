@@ -12,6 +12,7 @@ const Button: FC<IButtonProps> = (props) => {
   const { title, onClick, className, background, disabled } = props;
   return (
     <button
+      type={"button"}
       disabled={disabled}
       onClick={onClick}
       className={cn(classes.button, className)}

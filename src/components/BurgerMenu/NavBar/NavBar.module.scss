@@ -1,5 +1,6 @@
 @import "../../../styles/variables/variables";
 @import "../../../styles/mixins/mixins";
+
 .navbar__items {
   display: flex;
   flex-direction: column;
@@ -17,9 +18,11 @@
   margin-bottom: 15px;
   text-decoration: none;
   transition: $transition;
+
   &:last-of-type {
     margin-bottom: 0;
   }
+
   &:hover {
     color: $main-accent;
   }
@@ -38,6 +41,7 @@
 
 .navbar__icons {
   @extend .navbar__items;
+
   flex-direction: row;
   margin-top: 38px;
 }
@@ -45,13 +49,16 @@
 .navbar__icon_img {
   width: 32px;
   height: 32px;
+
   :last-of-type {
     margin-right: 0;
     margin-bottom: 0;
   }
-  path{
+
+  path {
     transition: $transition;
   }
+
   :hover path {
     fill: $main-accent;
   }
@@ -59,8 +66,9 @@
 
 .navbar__icon {
   @extend .navbar__item;
-  margin-bottom: 0px;
+
+  margin-bottom: 0;
   margin-right: 24px;
-  font-size: 0px;
+  font-size: 0;
   line-height: 0px;
 }
