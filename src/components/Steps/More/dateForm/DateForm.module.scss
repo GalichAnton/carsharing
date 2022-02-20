@@ -13,14 +13,14 @@
     display: inline-block;
     overflow: hidden;
     max-width: 105px;
-    font-family: RobotoLight, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     color: $main-black;
     margin-right: 15px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    @media screen and (min-width: 0) and (max-width: 768px) {
-      font-size: 14px;
-    }
+    font-size: 14px;
+    line-height: 16px;
   }
 }
 

@@ -7,21 +7,13 @@ const LocationForm = () => {
       <div className={classes.inputWrapper}>
         <label htmlFor="town">Город</label>
 
-        <Input
-          type={"text"}
-          name="town"
-          placeholder="Начните вводить город..."
-        />
+        <Input name="town" placeholder="Начните вводить город..." />
       </div>
 
       <div className={classes.inputWrapper}>
         <label htmlFor="point">Пункт выдачи</label>
 
-        <Input
-          type={"text"}
-          name="point"
-          placeholder="Начните вводить пункт..."
-        />
+        <Input name="point" placeholder="Начните вводить пункт..." />
       </div>
     </form>
   );

@@ -3,7 +3,7 @@ import ModelList from "./ModelList/ModelList";
 import { models } from "./content/Models";
 import { IModel } from "../../../Interfaces/ModelInterface";
 import classes from "./Model.module.scss";
-import RadioGroup from "../../UI/RadioGroup/RadioGroup";
+import RadioGroup from "../../UI/Inputs/RadioGroup/RadioGroup";
 const radioGroup = ["Все модели", "Эконом", "Премиум"];
 const Model = () => {
   const [selectedButton, setSelectedButton] = useState<string>("Все модели");

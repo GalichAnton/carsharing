@@ -8,13 +8,13 @@ const DateForm = () => {
       <div className={classes.inputWrapper}>
         <label htmlFor="from">С</label>
 
-        <Input type={"datetime-local"} name="from" placeholder="" />
+        <Input onFocus={true} name="from" placeholder="Введите дату и время" />
       </div>
 
       <div className={classes.inputWrapper}>
         <label htmlFor="to">По</label>
 
-        <Input type={"datetime-local"} name="to" placeholder="" />
+        <Input onFocus={true} name="to" placeholder="Введите дату и время" />
       </div>
     </form>
   );
