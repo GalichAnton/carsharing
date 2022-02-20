@@ -21,12 +21,18 @@ const RadioGroup: FC<IRadioGroupProps> = ({
       })}
     >
       {buttons.map((button, i) => (
-        <RadioButton
+        <div
           key={i}
-          value={button}
-          checked={selected === button}
-          handleChange={handleChange}
-        />
+          className={cn(classes.radioButton, {
+            [classes.radioButton__vertical]: direction === "vertical",
+          })}
+        >
+          <RadioButton
+            value={button}
+            checked={selected === button}
+            handleChange={handleChange}
+          />
+        </div>
       ))}
     </form>
   );

@@ -5,11 +5,12 @@ interface IProps {
   placeholder: string;
   name: string;
   onFocus?: boolean;
+  pattern?: string;
 }
 
 export const Input: FC<IProps> = (props) => {
+  const { placeholder, name, onFocus, pattern } = props;
   const [value, setValue] = useState("");
-  const { placeholder, name, onFocus } = props;
   const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
     if (onFocus) {
       e.target.type = "datetime-local";
@@ -21,9 +22,10 @@ export const Input: FC<IProps> = (props) => {
   return (
     <div className={classes.container}>
       <input
+        pattern={pattern}
         type={"text"}
-        onFocus={(e) => handleFocus(e)}
-        onBlur={(e) => handleBlur(e)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         name={name}
         className={classes.input}
         placeholder={placeholder}

@@ -6,13 +6,17 @@ const DateForm = () => {
     <form className={classes.container}>
       <h3 className={classes.title}>Даты аренды</h3>
       <div className={classes.inputWrapper}>
-        <label htmlFor="from">С</label>
+        <label className={classes.label} htmlFor="from">
+          С
+        </label>
 
         <Input onFocus={true} name="from" placeholder="Введите дату и время" />
       </div>
 
       <div className={classes.inputWrapper}>
-        <label htmlFor="to">По</label>
+        <label className={classes.label} htmlFor="to">
+          По
+        </label>
 
         <Input onFocus={true} name="to" placeholder="Введите дату и время" />
       </div>
