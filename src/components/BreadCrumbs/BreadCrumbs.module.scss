@@ -1,0 +1,70 @@
+@import "../../styles/variables/variables";
+
+.breadCrumbs {
+  border-bottom: 1px solid $main-light-grey;
+  border-top: 1px solid $main-light-grey;
+  padding-left: 128px;
+  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    padding-left: 64px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding-left: 32px;
+  }
+  @media screen  and (max-width: 768px) {
+    padding-left: 12px;
+  }
+
+}
+
+.container {
+  display: flex;
+  padding: 8px 0;
+  align-items: center;
+  @media screen and (min-width: 0) and (max-width: 768px) {
+    padding: 4px 0;
+  }
+}
+
+.link {
+  color: $main-dark-grey;
+  font-weight: 700;
+  text-decoration: none;
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 425px) and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 0) and (max-width: 425px) {
+    font-size: 10px;
+  }
+}
+
+.link_active {
+  @extend .link;
+  color: $main-accent;
+}
+
+.link_filled{
+  @extend .link;
+  color: $main-black;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  &__last{
+    display: none;
+  }
+  @media screen and (min-width: 0) and (max-width: 768px) {
+    padding: 0 5px;
+  }
+}
+
+
+
+.link__wrapper{
+  display: flex;
+}

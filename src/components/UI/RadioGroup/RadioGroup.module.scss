@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  & > * {
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}

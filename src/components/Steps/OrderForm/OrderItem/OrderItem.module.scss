@@ -1,0 +1,49 @@
+@import "../../../../styles/variables/variables";
+@import "../../../../styles/mixins/mixins";
+
+.container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  margin: 0;
+}
+
+.info {
+  max-width: 100px;
+  padding-left: 15px;
+  text-align: right;
+  color: $main-dark-grey;
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0;
+}
+
+.dots {
+  margin: 0 12px;
+  flex: 0 1 auto;
+  min-width: 30px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999;
+  align-self: flex-end;
+
+  &::before {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    content: ". . . . . . . . . . . . . . . . . . . . "
+      ". . . . . . . . . . . . . . . . . . . . "
+      ". . . . . . . . . . . . . . . . . . . . "
+      ". . . . . . . . . . . . . . . . . . . . ";
+  }
+}

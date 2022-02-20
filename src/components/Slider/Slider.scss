@@ -1,6 +1,7 @@
 @import "../../styles/variables/variables";
+
 .swiper-button-next {
-  color: #EEEEEE !important;
+  color: #eee !important;
   height: 100vh;
   width: 64px !important;
   transition: $transition;
@@ -8,6 +9,7 @@
   right: 0 !important;
   &:after{
     font-size: 18px !important;
+
     transition: $transition;
     width: 64px !important;
     height: 110vh;
@@ -15,6 +17,7 @@
     align-items: center;
     justify-content: center;
   }
+
   &:hover{
     &:after{
       background: rgba(14, 194, 97, 0.2);
@@ -27,8 +30,10 @@
     }
   }
 }
+
 .swiper-button-prev {
   @extend .swiper-button-next;
+
   left: 0 !important;
 }
 
@@ -46,8 +51,8 @@
   bottom :32px !important;
 }
 
-.swiper-container{
-  @media screen  and (max-width: 1024px) {
+.swiper-container {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 }

@@ -1,0 +1,23 @@
+@import "../../../styles/variables/variables";
+
+.location {
+  display: flex;
+  padding-top: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1;
+  border-right: 1px solid $main-light-grey;
+  @media screen and (min-width: 0px) and (max-width: 768px) {
+    align-items: center;
+    border-right: none;
+  }
+}
+
+.title {
+  font-family: RobotoLight, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: $main-black;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
