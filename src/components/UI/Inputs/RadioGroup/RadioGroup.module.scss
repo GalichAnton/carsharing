@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  &__vertical {
+    flex-direction: column;
+  }
+}
+
+.radioButton{
+  &:not(:last-child){
+    margin-right: 16px;
+  }
+  &__vertical{
+    margin-right: 0;
+    &:not(:first-child){
+      margin-top: 16px;
+    }
+  }
+}

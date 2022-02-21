@@ -1,0 +1,29 @@
+@import "../../../styles/variables/variables";
+.more{
+  box-sizing: border-box;
+  display: flex;
+  padding-top: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow:1;
+  flex-shrink:1;
+  height: 100%;
+  padding-bottom: 15%;
+  border-right: 1px solid $main-light-grey;
+  @media screen and (min-width: 0px) and (max-width: 768px) {
+    align-items: center;
+    border-right: none;
+  }
+}
+
+.title{
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: $main-black;
+  margin: 0 0 16px;
+}
+
+.radioContainer{
+  margin-bottom: 32px;
+}

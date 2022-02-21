@@ -1,0 +1,53 @@
+@import "../../../../../styles/variables/variables";
+.container{
+  margin-bottom: 8px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.label {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  transition: $transition;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 300;
+  color: $main-dark-grey;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.checkbox + .label:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  background: transparent;
+  border: 1px solid $main-dark-grey;
+}
+
+.checkbox:checked + .label:before {
+  border: 1px solid $main-accent;
+}
+
+.checkbox:checked + .label {
+  color: $main-black;
+}
+
+.checkbox:checked + .label:after {
+  content: "";
+  width: 11px;
+  height: 7px;
+  position: absolute;
+  top:0;
+  left: 3px;
+  border: solid $main-black;
+  border-width: 3px 3px 0 0;
+  transform: rotate(130deg);
+}
