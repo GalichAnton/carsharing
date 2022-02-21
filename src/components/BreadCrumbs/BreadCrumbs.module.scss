@@ -3,12 +3,12 @@
 .breadCrumbs {
   border-bottom: 1px solid $main-light-grey;
   border-top: 1px solid $main-light-grey;
-  padding-left: 128px;
+  padding-left: 64px;
   @media screen and (min-width: 1024px) and (max-width: 1440px) {
-    padding-left: 64px;
+    padding-left: 32px;
   }
   @media screen and (min-width: 768px) and (max-width: 1024px) {
-    padding-left: 32px;
+    padding-left: 16px;
   }
   @media screen  and (max-width: 768px) {
     padding-left: 12px;
