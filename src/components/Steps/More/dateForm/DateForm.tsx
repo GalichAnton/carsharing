@@ -10,7 +10,7 @@ const DateForm = () => {
           С
         </label>
 
-        <Input name="from" placeholder="Введите дату и время" />
+        <Input date={true} name="from" placeholder="Введите дату и время" />
       </div>
 
       <div className={classes.inputWrapper}>
@@ -18,7 +18,7 @@ const DateForm = () => {
           По
         </label>
 
-        <Input name="to" placeholder="Введите дату и время" />
+        <Input date={true} name="to" placeholder="Введите дату и время" />
       </div>
     </form>
   );
