@@ -5,14 +5,17 @@ import cn from "classnames";
 interface IProps {
   placeholder: string;
   name: string;
+  date?: boolean;
 }
 
 export const Input: FC<IProps> = (props) => {
-  const { placeholder, name } = props;
+  const { placeholder, name, date } = props;
   const [value, setValue] = useState("");
   const [type, setType] = useState("text");
   const handleFocus = () => {
-    setType("datetime-local");
+    if (date) {
+      setType("datetime-local");
+    }
   };
 
   return (
