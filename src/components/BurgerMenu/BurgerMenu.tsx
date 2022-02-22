@@ -5,11 +5,11 @@ import { navMenuIcons, navMenuItems } from "./NavBar/NavBarItems";
 import cn from "classnames";
 import closeButton from "./NavBar/CloseButton";
 import { useAppSelector } from "../../hooks/redux/redux-hooks";
-import { burgerActions } from "../../store/Slices/ModalSlice";
 import { useDispatch } from "react-redux";
+import { modalActions } from "../../store/Slices/ModalSlice";
 const BurgerMenu = () => {
   const dispatch = useDispatch();
-  const isOpen = useAppSelector((state) => state.modalReducer.isOpen);
+  const isOpen = useAppSelector((state) => state.modal.isBurgerOpen);
   return (
     <section
       className={cn(classes.modal, {
@@ -18,7 +18,7 @@ const BurgerMenu = () => {
     >
       <div className={classes.wrapper}>
         <button
-          onClick={() => dispatch(burgerActions.setOpen(false))}
+          onClick={() => dispatch(modalActions.setOpenBurger(false))}
           className={classes.closeButton}
         >
           {closeButton}

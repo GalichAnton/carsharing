@@ -1,32 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ModelList from "./ModelList/ModelList";
 import { models } from "./content/Models";
 import { IModel } from "../../../Interfaces/ModelInterface";
 import classes from "./Model.module.scss";
 import RadioGroup from "../../UI/Inputs/RadioGroup/RadioGroup";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../../hooks/redux/redux-hooks";
+import { validActions } from "../../../store/Slices/ValidSlice";
+import { formActions } from "../../../store/Slices/FormSlice";
 const radioGroup = ["Все модели", "Эконом", "Премиум"];
 const Model = () => {
-  const [selectedButton, setSelectedButton] = useState<string>("Все модели");
-  const [selectedModel, setSelectedModel] = useState<IModel>();
+  const dispatch = useDispatch();
+  const model = useAppSelector((state) => state.form.model);
+  const category = useAppSelector((state) => state.form.category);
 
+  useEffect(() => {
+    if (model) {
+      dispatch(validActions.setModelStep(true));
+      dispatch(validActions.setMoreStep(true));
+    } else {
+      dispatch(validActions.setModelStep(false));
+      dispatch(validActions.setMoreStep(false));
+    }
+  }, [model]);
   const handleSelect = (model: IModel) => {
-    setSelectedModel(model);
+    dispatch(formActions.setModel(model.modelName));
   };
   const handleButtonChange = (value: string) => {
-    setSelectedButton(value);
+    dispatch(formActions.setCategory(value));
   };
   return (
     <section className={classes.model}>
       <div className={classes.model__radio}>
         <RadioGroup
           buttons={radioGroup}
-          selected={selectedButton}
+          selected={category}
           handleChange={handleButtonChange}
         />
       </div>
       <ModelList
         models={models}
-        selected={selectedModel}
+        selected={model}
         onSelectModel={handleSelect}
       />
     </section>

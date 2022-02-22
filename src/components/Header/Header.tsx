@@ -1,19 +1,25 @@
 import classes from "./Header.module.scss";
 import burgerBlack from "./svg/burgerBlack";
 import pointImg from "./svg/pointImg";
-import { burgerActions } from "../../store/Slices/ModalSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { formActions } from "../../store/Slices/FormSlice";
+import { validActions } from "../../store/Slices/ValidSlice";
+import { modalActions } from "../../store/Slices/ModalSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const openModal = () => {
-    dispatch(burgerActions.setOpen(true));
+    dispatch(modalActions.setOpenBurger(true));
+  };
+  const handleReset = () => {
+    dispatch(formActions.resetForm());
+    dispatch(validActions.resetValid());
   };
   return (
     <header className={classes.header}>
       <div className={classes.container}>
-        <Link to={"/"} className={classes.title}>
+        <Link onClick={handleReset} to={"/"} className={classes.title}>
           Need for drive
         </Link>
         <div className={classes.place__container}>
