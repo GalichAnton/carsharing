@@ -43,11 +43,11 @@
 .checkbox:checked + .label:after {
   content: "";
   width: 11px;
-  height: 7px;
+  height: 8px;
   position: absolute;
   top:0;
   left: 3px;
   border: solid $main-black;
-  border-width: 3px 3px 0 0;
+  border-width: 2px 2px 0 0;
   transform: rotate(130deg);
 }
