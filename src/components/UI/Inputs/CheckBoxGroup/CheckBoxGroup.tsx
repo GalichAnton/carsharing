@@ -3,7 +3,7 @@ import { ICheckbox } from "../../../../Interfaces/CheckBoxInterface";
 import CheckBoxButton from "./CheckBoxButton/CheckBoxButton";
 interface ICheckBoxGroupProps {
   checkboxes: ICheckbox[];
-  handleChange: (checkbox: ICheckbox) => void;
+  handleChange: (id: number) => void;
 }
 
 const CheckBoxGroup: FC<ICheckBoxGroupProps> = ({
@@ -16,7 +16,7 @@ const CheckBoxGroup: FC<ICheckBoxGroupProps> = ({
         <CheckBoxButton
           key={checkbox.id}
           checkbox={checkbox}
-          onChange={handleChange}
+          onChange={() => handleChange(checkbox.id)}
         />
       ))}
     </form>

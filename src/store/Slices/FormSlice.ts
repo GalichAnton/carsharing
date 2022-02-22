@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ICheckbox } from "../../Interfaces/CheckBoxInterface";
 
 interface IFormSliceState {
   city: string;
@@ -9,9 +10,7 @@ interface IFormSliceState {
   dateFrom: string;
   dateTo: string;
   tax: string;
-  isFullTank: boolean;
-  isChildChair: boolean;
-  isRightWheel: boolean;
+  moreOptions: ICheckbox[];
 }
 
 const initialState: IFormSliceState = {
@@ -19,13 +18,25 @@ const initialState: IFormSliceState = {
   point: "",
   model: "",
   category: "Все модели",
-  color: "",
+  color: "Любой",
   dateFrom: "",
   dateTo: "",
-  tax: "",
-  isFullTank: false,
-  isChildChair: false,
-  isRightWheel: false,
+  tax: "На сутки, 1999Р/сутки",
+  moreOptions: [
+    { title: "Полный бак, 500р", value: "Полный бак", id: 0, isChecked: false },
+    {
+      title: "Детское кресло, 200р",
+      value: "Детское кресло",
+      id: 1,
+      isChecked: true,
+    },
+    {
+      title: "Правый руль, 1600р",
+      value: "Правый руль",
+      id: 2,
+      isChecked: false,
+    },
+  ],
 };
 
 export const formSlice = createSlice({
@@ -56,14 +67,12 @@ export const formSlice = createSlice({
     setTax(state, action: PayloadAction<string>) {
       state.tax = action.payload;
     },
-    setTank(state, action: PayloadAction<boolean>) {
-      state.isFullTank = action.payload;
-    },
-    setChildChair(state, action: PayloadAction<boolean>) {
-      state.isChildChair = action.payload;
-    },
-    setRightWheel(state, action: PayloadAction<boolean>) {
-      state.isRightWheel = action.payload;
+    setOptions(state, action: PayloadAction<number>) {
+      state.moreOptions = state.moreOptions.map((option) =>
+        option.id === action.payload
+          ? { ...option, isChecked: !option.isChecked }
+          : option
+      );
     },
     resetForm(state) {
       return { ...state, ...initialState };
