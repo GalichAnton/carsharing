@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/carsharing/static/css/main.f9d825f0.css",
-    "main.js": "/carsharing/static/js/main.22919431.js",
+    "main.js": "/carsharing/static/js/main.0d3982a9.js",
     "static/media/bg_4.jpg": "/carsharing/static/media/bg_4.5ba1d885673bed82ebaf.jpg",
     "static/media/bg_3.jpg": "/carsharing/static/media/bg_3.3a3a5c53917e000b556c.jpg",
     "static/media/bg_2.jpg": "/carsharing/static/media/bg_2.e9908bfcc28b53dddf0a.jpg",
@@ -16,10 +16,10 @@
     "static/media/elantra.png": "/carsharing/static/media/elantra.436bdf3ec93413726b38.png",
     "index.html": "/carsharing/index.html",
     "main.f9d825f0.css.map": "/carsharing/static/css/main.f9d825f0.css.map",
-    "main.22919431.js.map": "/carsharing/static/js/main.22919431.js.map"
+    "main.0d3982a9.js.map": "/carsharing/static/js/main.0d3982a9.js.map"
   },
   "entrypoints": [
     "static/css/main.f9d825f0.css",
-    "static/js/main.22919431.js"
+    "static/js/main.0d3982a9.js"
   ]
 }
