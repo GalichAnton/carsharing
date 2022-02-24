@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICheckbox } from "../../Interfaces/CheckBoxInterface";
+import { ICity } from "../../Interfaces/CityInterfaces";
+import { IPoint } from "../../Interfaces/PointInterfaces";
 
 interface IFormSliceState {
-  city: string;
-  point: string;
+  city: ICity;
+  point: IPoint;
   model: string;
   category: string;
   color: string;
@@ -14,8 +16,8 @@ interface IFormSliceState {
 }
 
 const initialState: IFormSliceState = {
-  city: "",
-  point: "",
+  city: {} as ICity,
+  point: {} as IPoint,
   model: "",
   category: "Все модели",
   color: "Любой",
@@ -43,11 +45,11 @@ export const formSlice = createSlice({
   name: "form",
   initialState,
   reducers: {
-    setCity(state, action: PayloadAction<string>) {
-      state.city = action.payload;
+    setCity(state, action: PayloadAction<ICity>) {
+      state.city = { ...state.city, ...action.payload };
     },
-    setPoint(state, action: PayloadAction<string>) {
-      state.point = action.payload;
+    setPoint(state, action: PayloadAction<{ name: string; id: string }>) {
+      state.point = { ...state.point, ...action.payload };
     },
     setModel(state, action: PayloadAction<string>) {
       state.model = action.payload;
