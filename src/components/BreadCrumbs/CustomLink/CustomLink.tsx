@@ -9,9 +9,9 @@ interface ICustomLinkProps {
   step: string;
 }
 const CustomLink: FC<ICustomLinkProps> = (props) => {
+  const { link, title, step } = props;
   const validState = useAppSelector((state) => state.valid);
   const location = useLocation();
-  const { link, title, step } = props;
   const linkClassName = cn({
     [classes.link_active]: location.pathname === link,
     [classes.link_disabled]:

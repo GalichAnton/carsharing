@@ -7,16 +7,10 @@ import { validActions } from "../../../../store/Slices/ValidSlice";
 import { formActions } from "../../../../store/Slices/FormSlice";
 const DateForm = () => {
   const dispatch = useDispatch();
-  const dateFrom = useAppSelector((state) => state.form.dateFrom);
-  const dateTo = useAppSelector((state) => state.form.dateTo);
+  const { dateFrom, dateTo } = useAppSelector((state) => state.form);
   useEffect(() => {
-    if (dateFrom && dateTo) {
-      dispatch(validActions.setMoreStep(true));
-      dispatch(validActions.setTotalStep(true));
-    } else {
-      dispatch(validActions.setMoreStep(false));
-      dispatch(validActions.setTotalStep(false));
-    }
+    dispatch(validActions.setMoreStep(Boolean(dateFrom && dateTo)));
+    dispatch(validActions.setTotalStep(Boolean(dateFrom && dateTo)));
   }, [dateTo, dateFrom]);
   const handleChangeDateFrom = (dateFrom: string) => {
     dispatch(formActions.setDateFrom(dateFrom));

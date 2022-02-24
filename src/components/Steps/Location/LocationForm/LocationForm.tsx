@@ -7,8 +7,7 @@ import { formActions } from "../../../../store/Slices/FormSlice";
 import { validActions } from "../../../../store/Slices/ValidSlice";
 const LocationForm = () => {
   const dispatch = useDispatch();
-  const city = useAppSelector((state) => state.form.city);
-  const point = useAppSelector((state) => state.form.point);
+  const { city, point } = useAppSelector((state) => state.form);
   const handleCityChange = (str: string) => {
     dispatch(formActions.setCity(str));
   };
@@ -16,13 +15,8 @@ const LocationForm = () => {
     dispatch(formActions.setPoint(str));
   };
   useEffect(() => {
-    if (city && point) {
-      dispatch(validActions.setLocationStep(true));
-      dispatch(validActions.setModelStep(true));
-    } else {
-      dispatch(validActions.setLocationStep(false));
-      dispatch(validActions.setModelStep(false));
-    }
+    dispatch(validActions.setLocationStep(Boolean(city && point)));
+    dispatch(validActions.setModelStep(Boolean(city && point)));
   }, [city, point]);
   return (
     <form className={classes.container}>

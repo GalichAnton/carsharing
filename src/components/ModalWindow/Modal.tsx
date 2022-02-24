@@ -9,8 +9,8 @@ const Modal = () => {
   const dispatch = useDispatch();
   const isOpen = useAppSelector((state) => state.modal.isModalOpen);
   const className = cn({
-    [`${classes.popupMenu}`]: true,
-    [`${classes.active}`]: isOpen,
+    [classes.popupMenu]: true,
+    [classes.active]: isOpen,
   });
 
   const handleClose = () => {

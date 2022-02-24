@@ -15,13 +15,8 @@ const Model = () => {
   const category = useAppSelector((state) => state.form.category);
 
   useEffect(() => {
-    if (model) {
-      dispatch(validActions.setModelStep(true));
-      dispatch(validActions.setMoreStep(true));
-    } else {
-      dispatch(validActions.setModelStep(false));
-      dispatch(validActions.setMoreStep(false));
-    }
+    dispatch(validActions.setModelStep(Boolean(model)));
+    dispatch(validActions.setMoreStep(Boolean(model)));
   }, [model]);
   const handleSelect = (model: IModel) => {
     dispatch(formActions.setModel(model.modelName));
