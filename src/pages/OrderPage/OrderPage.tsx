@@ -8,6 +8,7 @@ import OrderForm from "../../components/Steps/OrderForm/OrderForm";
 import { IOrderItem } from "../../components/Steps/OrderForm/OrderItem/OrderItem";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import { crumbItems } from "../../components/BreadCrumbs/constants";
+import Modal from "../../components/ModalWindow/Modal";
 const OrderPage = () => {
   const orderItem: IOrderItem[] = [{ title: "Пункт", info: "Санкт-Петербург" }];
   return (
@@ -27,6 +28,7 @@ const OrderPage = () => {
             endPrice={10000}
           />
         </div>
+        <Modal />
       </div>
 
       <BurgerMenu />

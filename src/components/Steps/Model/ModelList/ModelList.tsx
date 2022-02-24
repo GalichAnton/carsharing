@@ -4,7 +4,7 @@ import { IModel } from "../../../../Interfaces/ModelInterface";
 import ModelItem from "../ModelItem/ModelItem";
 interface IModelListProps {
   models: IModel[];
-  selected?: IModel;
+  selected?: string;
   onSelectModel: (model: IModel) => void;
 }
 const ModelList: FC<IModelListProps> = ({
@@ -19,7 +19,7 @@ const ModelList: FC<IModelListProps> = ({
           <ModelItem
             key={i}
             model={model}
-            selected={selected === model}
+            selected={selected === model.modelName}
             onSelectModel={onSelectModel}
           />
         ))}

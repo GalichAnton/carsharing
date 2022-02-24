@@ -3,6 +3,8 @@ import classes from "./OrderForm.module.scss";
 import OrderItem, { IOrderItem } from "./OrderItem/OrderItem";
 import Price from "./Price/Price";
 import Button from "../../UI/Button/Button";
+import { useDispatch } from "react-redux";
+import { modalActions } from "../../../store/Slices/ModalSlice";
 
 interface IProps {
   orderItems: IOrderItem[];
@@ -11,6 +13,10 @@ interface IProps {
 }
 
 const OrderForm: FC<IProps> = ({ orderItems, startPrice, endPrice }) => {
+  const dispatch = useDispatch();
+  const handleOpenOrderModal = () => {
+    dispatch(modalActions.setOpenModal(true));
+  };
   return (
     <form className={classes.form}>
       <h3 className={classes.title}>Ваш заказ:</h3>
@@ -27,9 +33,10 @@ const OrderForm: FC<IProps> = ({ orderItems, startPrice, endPrice }) => {
         )}
 
         <Button
-          disabled={true}
+          disabled={false}
           title={"Выбрать модель"}
           className={classes.button}
+          onClick={handleOpenOrderModal}
         />
       </div>
     </form>

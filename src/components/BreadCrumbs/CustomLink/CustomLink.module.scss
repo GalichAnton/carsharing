@@ -1,0 +1,26 @@
+@import "../../../styles/variables/variables";
+.link {
+  color: $main-black;
+  font-weight: 700;
+  text-decoration: none;
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 425px) and (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 0) and (max-width: 425px) {
+    font-size: 10px;
+  }
+}
+
+.link_active {
+  @extend .link;
+  color: $main-accent;
+}
+
+.link_disabled{
+  @extend .link;
+  pointer-events: none;
+  color: $main-dark-grey;
+}

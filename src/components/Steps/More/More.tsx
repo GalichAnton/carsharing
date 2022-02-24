@@ -1,30 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./More.module.scss";
 import DateForm from "./dateForm/DateForm";
-import { ICheckbox } from "../../../Interfaces/CheckBoxInterface";
 import RadioGroup from "../../UI/Inputs/RadioGroup/RadioGroup";
 import CheckBoxGroup from "../../UI/Inputs/CheckBoxGroup/CheckBoxGroup";
-import { checkboxGroup, radioColor, radioTax } from "./constants/constants";
+import { radioColor, radioTax } from "./constants/constants";
+import { useAppSelector } from "../../../hooks/redux/redux-hooks";
+import { useDispatch } from "react-redux";
+import { formActions } from "../../../store/Slices/FormSlice";
 
 const More = () => {
-  const [selectedColor, setSelectedColor] = useState<string>("Любой");
-  const [selectedTax, setSelectedTax] = useState<string>(
-    "На сутки, 1999Р/сутки"
-  );
-  const [checkedItems, setCheckedItems] = useState<ICheckbox[]>(checkboxGroup);
+  const dispatch = useDispatch();
+  const color = useAppSelector((state) => state.form.color);
+  const tax = useAppSelector((state) => state.form.tax);
+  const checkBoxes = useAppSelector((state) => state.form.moreOptions);
   const handleColorChange = (value: string) => {
-    setSelectedColor(value);
+    dispatch(formActions.setColor(value));
   };
   const handleTaxChange = (value: string) => {
-    setSelectedTax(value);
+    dispatch(formActions.setTax(value));
   };
-  const handleCheckboxChange = (checkbox: ICheckbox) => {
-    const newItems = [...checkedItems];
-    newItems[checkbox.id] = {
-      ...checkbox,
-      isChecked: !newItems[checkbox.id].isChecked,
-    };
-    setCheckedItems(newItems);
+  const handleCheckboxChange = (id: number) => {
+    dispatch(formActions.setOptions(id));
   };
   return (
     <section className={classes.more}>
@@ -32,7 +28,7 @@ const More = () => {
       <div className={classes.radioContainer}>
         <RadioGroup
           buttons={radioColor}
-          selected={selectedColor}
+          selected={color}
           handleChange={handleColorChange}
         />
       </div>
@@ -43,13 +39,13 @@ const More = () => {
         <RadioGroup
           direction={"vertical"}
           buttons={radioTax}
-          selected={selectedTax}
+          selected={tax}
           handleChange={handleTaxChange}
         />
       </div>
       <h4 className={classes.title}>Доп услуги</h4>
       <CheckBoxGroup
-        checkboxes={checkedItems}
+        checkboxes={checkBoxes}
         handleChange={handleCheckboxChange}
       />
     </section>

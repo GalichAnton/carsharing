@@ -16,7 +16,6 @@ const Router = () => (
         <Route path="model" element={<Model />} />
         <Route path="more" element={<More />} />
         <Route path="total" element={<Total />} />
-        {/* <Route path=' :id' element={<Total />} />*/}
       </Route>
     </Routes>
   </BrowserRouter>
