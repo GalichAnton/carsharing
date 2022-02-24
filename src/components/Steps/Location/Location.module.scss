@@ -1,11 +1,15 @@
 @import "../../../styles/variables/variables";
 
 .location {
+  box-sizing: border-box;
   display: flex;
+  height: 100%;
   padding-top: 32px;
+  padding-bottom: 15%;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1 1;
+  flex-shrink: 1;
+  flex-grow: 1;
   border-right: 1px solid $main-light-grey;
   @media screen and (min-width: 0px) and (max-width: 768px) {
     align-items: center;

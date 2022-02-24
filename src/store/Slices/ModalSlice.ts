@@ -1,22 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IState {
-  isOpen: boolean;
+  isBurgerOpen: boolean;
+  isModalOpen: boolean;
 }
 
 const initialState: IState = {
-  isOpen: false,
+  isBurgerOpen: false,
+  isModalOpen: false,
 };
 
-const BurgerSlice = createSlice({
+const ModalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    setOpen(state, action: PayloadAction<boolean>) {
-      state.isOpen = action.payload;
+    setOpenBurger(state, action: PayloadAction<boolean>) {
+      state.isBurgerOpen = action.payload;
+    },
+    setOpenModal(state, action: PayloadAction<boolean>) {
+      state.isModalOpen = action.payload;
     },
   },
 });
 
-export const burgerActions = BurgerSlice.actions;
-export default BurgerSlice.reducer;
+export const modalActions = ModalSlice.actions;
+export default ModalSlice.reducer;

@@ -6,11 +6,12 @@ interface IProps {
   placeholder: string;
   name: string;
   date?: boolean;
+  onChange: (str: string) => void;
+  value?: string;
 }
 
 export const Input: FC<IProps> = (props) => {
-  const { placeholder, name, date } = props;
-  const [value, setValue] = useState("");
+  const { placeholder, name, date, value, onChange } = props;
   const [type, setType] = useState("text");
   const handleFocus = () => {
     if (date) {
@@ -27,14 +28,14 @@ export const Input: FC<IProps> = (props) => {
         className={classes.input}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => setValue(e.currentTarget.value)}
+        onChange={(e) => onChange(e.currentTarget.value)}
       />
 
       <span
         className={cn(classes.close, {
           [classes.close__date]: type === "datetime-local",
         })}
-        onClick={() => setValue("")}
+        onClick={() => onChange("")}
       >
         {value !== "" && CloseBtn}
       </span>

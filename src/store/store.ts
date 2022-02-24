@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import modal from "./Slices/ModalSlice";
+import modalReducer from "./Slices/ModalSlice";
+import validReducer from "./Slices/ValidSlice";
+import formReducer from "./Slices/FormSlice";
 export const store = configureStore({
   reducer: {
-    modalReducer: modal,
+    modal: modalReducer,
+    valid: validReducer,
+    form: formReducer,
   },
 });
 

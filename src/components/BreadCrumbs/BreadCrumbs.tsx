@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
 import classes from "./BreadCrumbs.module.scss";
 import arrow from "./arrow";
 import { ICrumbItems } from "./constants";
 import cn from "classnames";
+import CustomLink from "./CustomLink/CustomLink";
 interface IBreadCrumbsProps {
   items: ICrumbItems[];
 }
@@ -13,14 +13,7 @@ const BreadCrumbs: FC<IBreadCrumbsProps> = ({ items }) => {
       <div className={classes.container}>
         {items.map((item, i) => (
           <div key={i} className={classes.link__wrapper}>
-            <NavLink
-              to={{ pathname: item.link }}
-              className={({ isActive }) =>
-                isActive ? classes.link_active : classes.link
-              }
-            >
-              {item.name}
-            </NavLink>
+            <CustomLink step={item.step} link={item.link} title={item.name} />
             <div
               className={cn(classes.arrow, {
                 [classes.arrow__last]: i === items.length - 1,
