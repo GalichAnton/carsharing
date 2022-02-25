@@ -79,6 +79,13 @@ export const formSlice = createSlice({
     resetForm(state) {
       return { ...state, ...initialState };
     },
+    resetPoint(state) {
+      return {
+        ...state,
+        ...initialState,
+        city: state.city,
+      };
+    },
   },
 });
 

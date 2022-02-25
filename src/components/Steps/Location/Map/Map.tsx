@@ -1,18 +1,108 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Map, Placemark, YMaps } from "react-yandex-maps";
+import mark from "../../../../assets/images/map/mark.svg";
 import classes from "./Map.module.scss";
-const Map = () => {
+import { useDispatch } from "react-redux";
+import { yandexKey } from "../../../../api/constants";
+import { useAppSelector } from "../../../../hooks/redux/redux-hooks";
+import { IPoint } from "../../../../Interfaces/PointInterfaces";
+import { formActions } from "../../../../store/Slices/FormSlice";
+
+const mapProperties = {
+  iconLayout: "default#image",
+  iconImageSize: [16, 16],
+  iconImageHref: mark,
+};
+
+const CustomMap = () => {
+  const dispatch = useDispatch();
+
+  const [ymap, setYmap] = useState<any>(null);
+  const [zoom, setZoom] = React.useState(10);
+  const [coordinates, setCoordinates] = useState<any>(null);
+  const [center, setCenter] = useState([54.314192, 48.403132]);
+  const city = useAppSelector((state) => state.form.city.name);
+  const point = useAppSelector((state) => state.form.point.name);
+  const points = useAppSelector((state) => state.data.points.data);
+
+  const getCoordinates = async (address: string) => {
+    if (ymap) {
+      const geocoder = await ymap.geocode(address);
+      const firstGeoObject = geocoder.geoObjects.get(0);
+      return firstGeoObject.geometry.getCoordinates();
+    }
+  };
+
+  const changeMapCenter = async (address: string, isCity = false) => {
+    isCity ? setZoom(12) : setZoom(16);
+    const coords = await getCoordinates(address);
+    setCenter(coords);
+  };
+
+  const mapState = React.useMemo(
+    () => ({ center: center, zoom }),
+    [zoom, center]
+  );
+
+  const init = (ymap: any) => {
+    setYmap(ymap);
+  };
+
+  const getPoints = async (points: IPoint[]) => {
+    const newCoordinates = [];
+    for (const item of points) {
+      const newCoordinate = await getCoordinates(city + "," + item.address);
+      newCoordinates.push({ newCoordinate: newCoordinate, point: item });
+    }
+    setCoordinates(newCoordinates);
+  };
+
+  useEffect(() => {
+    !point && city && changeMapCenter(city, true);
+    point && changeMapCenter(city + "," + point);
+  }, [point]);
+
+  useEffect(() => {
+    points && getPoints(points);
+    city && changeMapCenter(city, true);
+  }, [points]);
+
   return (
-    <div className={classes.container}>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121783.16983423554!2d48.26245874879136!3d54.282640372969894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415d365f8f42b3f5%3A0x2152ff0847091be4!2z0KPQu9GM0Y_QvdC-0LLRgdC6LCDQo9C70YzRj9C90L7QstGB0LrQsNGPINC-0LHQuy4!5e0!3m2!1sru!2sru!4v1645002948811!5m2!1sru!2sru"
-        width="100%"
-        height="100%"
-        style={{ border: "0" }}
-        allowFullScreen={false}
-        loading="lazy"
-      ></iframe>
+    <div className={classes.mapContainer}>
+      <div>
+        <YMaps
+          query={{
+            ns: "use-load-option",
+            apikey: yandexKey,
+            load: "geocode",
+          }}
+        >
+          <Map
+            state={mapState}
+            className={classes.mapInner}
+            onLoad={(ymaps) => init(ymaps)}
+          >
+            {coordinates &&
+              coordinates?.map((coordinate: any, index: string) => (
+                <Placemark
+                  key={index}
+                  geometry={coordinate.newCoord}
+                  options={mapProperties}
+                  onClick={() => {
+                    dispatch(
+                      formActions.setPoint({
+                        name: coordinate.address,
+                        id: coordinate.id,
+                      })
+                    );
+                  }}
+                />
+              ))}
+          </Map>
+        </YMaps>
+      </div>
     </div>
   );
 };
 
-export default Map;
+export default CustomMap;

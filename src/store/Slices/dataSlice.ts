@@ -13,12 +13,6 @@ interface IData {
     data: IPoint[];
     status: "idle" | "loading" | "success" | "rejected";
   };
-  geoData: {
-    status: "idle" | "loading" | "success" | "rejected";
-    city: string[];
-    points: string[];
-    selectedPoint: string[];
-  };
 }
 const initialState: IData = {
   cities: {
@@ -28,12 +22,6 @@ const initialState: IData = {
   points: {
     data: [],
     status: "idle",
-  },
-  geoData: {
-    status: "idle",
-    city: [],
-    points: [],
-    selectedPoint: [],
   },
 };
 
@@ -52,54 +40,10 @@ export const getPoints = createAsyncThunk(
   }
 );
 
-export const getCityGeoData = createAsyncThunk(
-  "geoData/getGeoData",
-  async (city: string, thunkAPI) => {
-    const cityPoint = await Service.getGeoData(city);
-    return thunkAPI.dispatch(dataActions.setCityPoint(cityPoint));
-  }
-);
-
-export const getPointsGeoData = createAsyncThunk(
-  "geoData/getGeoData",
-  async (city: string, thunkAPI) => {
-    const points = await Service.getGeoData(city);
-    return thunkAPI.dispatch(dataActions.setPoints(points));
-  }
-);
-
-export const getSelectedPointGeoData = createAsyncThunk(
-  "geoData/getGeoData",
-  async (city: string, thunkAPI) => {
-    const point = await Service.getGeoData(city);
-    return thunkAPI.dispatch(dataActions.setSelectedPoint(point));
-  }
-);
-
 const dataSlice = createSlice({
   name: "competitions",
   initialState,
   reducers: {
-    setCityPoint(state, action) {
-      state.geoData.city =
-        action.payload.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
-          .split(" ")
-          .reverse();
-    },
-
-    setPoints(state, action) {
-      state.geoData.points = [
-        ...state.geoData.points,
-        action.payload.response.GeoObjectCollection,
-      ];
-    },
-
-    setSelectedPoint(state, action) {
-      state.geoData.selectedPoint =
-        action.payload.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
-          .split(" ")
-          .reverse();
-    },
     resetData(state) {
       return { ...state, ...initialState };
     },
