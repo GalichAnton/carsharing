@@ -6,32 +6,39 @@ import { validActions } from "../../../../store/Slices/ValidSlice";
 import { getCities, getPoints } from "../../../../store/Slices/dataSlice";
 import useAutocomplete from "../../../../hooks/useAutocomplete";
 import Autocomplete from "../../../Autocomplete/Autocomplete";
+import { RootState } from "../../../../store/store";
+import { IOption } from "../../../../Interfaces/OptionInterface";
+const getOptionsByKey =
+  (key: string) =>
+  (item: Record<string, any>): IOption => ({
+    id: item.id,
+    value: item?.[key],
+    label: item?.[key],
+  });
+
+const mapState = (state: RootState) => ({
+  cities: state.data.cities,
+  points: state.data.points,
+  city: state.form.city,
+  point: state.form.point,
+});
 
 const LocationForm = () => {
   const dispatch = useDispatch();
   const { onCityChange, onPointChange, onReset } = useAutocomplete();
-  const { cities, points } = useAppSelector((state) => state.data);
-  const { city, point } = useAppSelector((state) => state.form);
-  const cityOptions = cities.data
-    ? cities.data.map((item) => ({
-        value: item.name,
-        label: item.name,
-        id: item.id,
-      }))
-    : [];
-  const pointOptions = points.data
-    ? points.data.map((item) => ({
-        value: item.address,
-        label: item.address,
-        id: item.id,
-      }))
-    : [];
+  const { cities, points, city, point } = useAppSelector(mapState);
+  const { name: cityName } = city;
+  const { name: pointName } = point;
+  const { data: dataCities = [], status: statusCities } = cities;
+  const { data: dataPoints = [], status: statusPoints } = points;
+  const cityOptions = dataCities.map(getOptionsByKey("name"));
+  const pointOptions = dataPoints.map(getOptionsByKey("address"));
 
   useEffect(() => {
     if (cities.status === "idle") {
       dispatch(getCities());
     }
-  }, [cities.status]);
+  }, [statusCities]);
 
   useEffect(() => {
     dispatch(validActions.setLocationStep(Boolean(city.name && point.name)));
@@ -42,7 +49,7 @@ const LocationForm = () => {
     if (city.name && points.status === "idle") {
       dispatch(getPoints(city.id));
     }
-  }, [city.name, points.status]);
+  }, [cityName, statusPoints]);
 
   return (
     <form className={classes.container}>
@@ -60,7 +67,7 @@ const LocationForm = () => {
           name="point"
           onChange={onPointChange}
           options={pointOptions}
-          valueState={point.name}
+          valueState={pointName}
           placeholder={
             points.data.length === 0
               ? "В этом городе нет пунктов"

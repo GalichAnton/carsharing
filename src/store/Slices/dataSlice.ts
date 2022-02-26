@@ -20,8 +20,8 @@ const initialState: IData = {
     status: "idle",
   },
   points: {
-    data: [],
     status: "idle",
+    data: [],
   },
 };
 
@@ -36,6 +36,15 @@ export const getPoints = createAsyncThunk(
     const { data }: AxiosResponse<IPointsResponse> = await Service.getPoints(
       city
     );
+    return data.data;
+  }
+);
+
+export const getAllPoints = createAsyncThunk(
+  "points/getAllPoints",
+  async () => {
+    const { data }: AxiosResponse<IPointsResponse> =
+      await Service.getAllPoints();
     return data.data;
   }
 );
@@ -63,6 +72,7 @@ const dataSlice = createSlice({
     builder.addCase(getCities.pending, (state) => {
       state.cities.status = "loading";
     });
+    // ==========================
     builder.addCase(getPoints.rejected, (state) => {
       state.points.status = "rejected";
     });
@@ -75,6 +85,21 @@ const dataSlice = createSlice({
       }
     });
     builder.addCase(getPoints.pending, (state) => {
+      state.points.status = "loading";
+    });
+    // ==========================
+    builder.addCase(getAllPoints.rejected, (state) => {
+      state.points.status = "rejected";
+    });
+    builder.addCase(getAllPoints.fulfilled, (state, { payload }) => {
+      if (payload) {
+        state.points.data = payload;
+        state.points.status = "success";
+      } else {
+        state.points.status = "rejected";
+      }
+    });
+    builder.addCase(getAllPoints.pending, (state) => {
       state.points.status = "loading";
     });
   },

@@ -16,6 +16,9 @@
 .mapInner {
   width: 738px;
   height: 352px;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 
   @media (max-width: 1440px) {
     width: 500px;
@@ -33,5 +36,9 @@
   @media (max-width: 425px) {
     width: 300px;
     height: 190px;
+  }
+  &__hide{
+    visibility: hidden;
+    opacity: 0;
   }
 }

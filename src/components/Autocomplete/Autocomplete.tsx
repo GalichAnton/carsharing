@@ -2,11 +2,7 @@ import React, { FC, MouseEvent } from "react";
 import Select, { createFilter } from "react-select";
 import classes from "./Autocomplete.module.scss";
 import CloseBtn from "../UI/Inputs/CloseBtn";
-export interface IOption {
-  value: string;
-  label: string;
-  id: string;
-}
+import { IOption } from "../../Interfaces/OptionInterface";
 interface IAutocompleteProps {
   onChange: (option: any) => void;
   valueState: string;
@@ -15,9 +11,14 @@ interface IAutocompleteProps {
   name: string;
   isDisabled?: boolean;
   labelText: string;
-  options: any;
+  options: IOption[];
 }
-
+const filterConfig: any = {
+  ignoreCase: true,
+  ignoreAccents: true,
+  trim: true,
+  matchFrom: "start",
+};
 const Autocomplete: FC<IAutocompleteProps> = (props) => {
   const {
     onChange,
@@ -29,12 +30,7 @@ const Autocomplete: FC<IAutocompleteProps> = (props) => {
     isDisabled,
     labelText,
   } = props;
-  const filterConfig: any = {
-    ignoreCase: true,
-    ignoreAccents: true,
-    trim: true,
-    matchFrom: "start",
-  };
+
   return (
     <div className={classes.inputContainer}>
       <label className={classes.inputLabel}>{labelText}</label>
@@ -47,8 +43,8 @@ const Autocomplete: FC<IAutocompleteProps> = (props) => {
         options={options}
         value={
           valueState
-            ? options.filter((option: any) => option.value === valueState)
-            : ""
+            ? options.filter((option: IOption) => option.value === valueState)
+            : null
         }
         isSearchable={true}
         placeholder={placeholder}

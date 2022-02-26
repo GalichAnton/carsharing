@@ -7,13 +7,18 @@ import { yandexKey } from "../../../../api/constants";
 import { useAppSelector } from "../../../../hooks/redux/redux-hooks";
 import { IPoint } from "../../../../Interfaces/PointInterfaces";
 import { formActions } from "../../../../store/Slices/FormSlice";
+import { RootState } from "../../../../store/store";
 
 const mapProperties = {
   iconLayout: "default#image",
   iconImageSize: [16, 16],
   iconImageHref: mark,
 };
-
+const mapStateToProps = (state: RootState) => ({
+  points: state.data.points.data,
+  city: state.form.city.name,
+  point: state.form.point.name,
+});
 const CustomMap = () => {
   const dispatch = useDispatch();
 
@@ -21,9 +26,7 @@ const CustomMap = () => {
   const [zoom, setZoom] = React.useState(10);
   const [coordinates, setCoordinates] = useState<any>(null);
   const [center, setCenter] = useState([54.314192, 48.403132]);
-  const city = useAppSelector((state) => state.form.city.name);
-  const point = useAppSelector((state) => state.form.point.name);
-  const points = useAppSelector((state) => state.data.points.data);
+  const { city, point, points } = useAppSelector(mapStateToProps);
 
   const getCoordinates = async (address: string) => {
     if (ymap) {
@@ -86,13 +89,13 @@ const CustomMap = () => {
               coordinates?.map((coordinate: any, index: string) => (
                 <Placemark
                   key={index}
-                  geometry={coordinate.newCoord}
+                  geometry={coordinate.newCoordinate}
                   options={mapProperties}
                   onClick={() => {
                     dispatch(
                       formActions.setPoint({
-                        name: coordinate.address,
-                        id: coordinate.id,
+                        name: coordinate.point.address,
+                        id: coordinate.point.id,
                       })
                     );
                   }}

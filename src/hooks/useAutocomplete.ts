@@ -4,20 +4,21 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "./redux/redux-hooks";
 import { formActions } from "../store/Slices/FormSlice";
 import { dataActions } from "../store/Slices/dataSlice";
+import { IOption } from "../Interfaces/OptionInterface";
 
 const useAutocomplete = () => {
   const dispatch = useDispatch();
-  const { city } = useAppSelector((state) => state.form);
+  const { name } = useAppSelector((state) => state.form.city);
 
-  const onCityChange = (option: any) => {
+  const onCityChange = (option: IOption) => {
     if (option) {
-      if (option.value !== city.name) dispatch(dataActions.resetData());
+      if (option.value !== name) dispatch(dataActions.resetData());
       dispatch(formActions.resetForm());
       dispatch(formActions.setCity({ name: option.value, id: option.id }));
     }
   };
 
-  const onPointChange = (option: any) => {
+  const onPointChange = (option: IOption) => {
     if (option) {
       dispatch(formActions.setPoint({ name: option.value, id: option.id }));
     }
