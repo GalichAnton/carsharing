@@ -1,0 +1,160 @@
+@import "../../styles/variables/variables";
+
+.input {
+  color: $main-black;
+  border: none;
+  padding: 0;
+  outline: none;
+  align-self: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  max-width: 225px;
+  @media screen and (min-width: 0px) and (max-width: 320px) {
+    font-size: 10px;
+    line-height: 10px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  @media screen and (min-width: 321px) and (max-width: 767px) {
+    font-size: 12px;
+    line-height: 14px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+  [class*="-control"] {
+    min-height: 25px;
+    border-radius: 0;
+    border: none;
+    width: 225px;
+    border-bottom: 1px solid $main-dark-grey;
+    outline: none;
+    box-shadow: none;
+    &:hover {
+      border-color: gray;
+    }
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+      width: 200px;
+      min-height: 20px;
+    }
+  }
+  [class*="-ValueContainer"] {
+    color: $main-dark-grey;
+    padding: 0 8px 0;
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+      padding: 0 4px 0;
+    }
+  }
+  [class*="-option"] {
+    color: gray;
+    padding: 8px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 16px;
+    @media screen and (min-width: 0px) and (max-width: 320px) {
+      font-size: 10px;
+      line-height: 10px;
+    }
+    @media screen and (min-width: 321px) and (max-width: 767px) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+    &:hover {
+      color: #0ec261;
+    }
+    &:active {
+      background-color: white;
+      opacity: 1;
+    }
+  }
+  [class*="-IndicatorsContainer"] {
+    display: none;
+  }
+
+  [class*="-indicators"] {
+    display: none;
+  }
+  [class*="indicators"] {
+    display: none;
+  }
+  [class*="-singleValue"] {
+    margin: 0;
+    padding: 0;
+  }
+  [class*="-placeholder"] {
+    margin: 0;
+    padding: 0;
+  }
+  [class*="-Input"] {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 13px;
+  align-self: center;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 425px) and (max-width: 425px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-right: 5px;
+    min-width: 91px;
+    margin-left: 50px;
+  }
+
+  @media screen and (min-width: 426px) and (max-width: 767px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-right: 5px;
+    min-width: 91px;
+    justify-content: center;
+  }
+}
+
+.inputLabel {
+  color: $main-black;
+  align-self: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  min-width: 91px;
+  text-align: right;
+  margin-right: 8px;
+  @media screen and (min-width: 0px) and (max-width: 320px) {
+    font-size: 10px;
+    line-height: 10px;
+    margin-right: 5px;
+    min-width: 91px;
+  }
+  @media screen and (min-width: 321px) and (max-width: 767px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-right: 5px;
+    min-width: 91px;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  cursor: pointer;
+  &__date{
+    right: 25px;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+}
