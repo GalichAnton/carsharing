@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ModelList from "./ModelList/ModelList";
 import { models } from "./content/Models";
-import { IModel } from "../../../Interfaces/ModelInterface";
+import { IModel } from "../../../Interfaces/CarInterface";
 import classes from "./Model.module.scss";
 import RadioGroup from "../../UI/Inputs/RadioGroup/RadioGroup";
 import { useDispatch } from "react-redux";

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classes from "./ModelItem.module.scss";
-import { IModel } from "../../../../Interfaces/ModelInterface";
+import { IModel } from "../../../../Interfaces/CarInterface";
 import cn from "classnames";
 interface IModelItemProps {
   model: IModel;

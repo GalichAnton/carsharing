@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "./redux/redux-hooks";
 import { formActions } from "../store/Slices/FormSlice";
-import { dataActions } from "../store/Slices/dataSlice";
+import { dataActions } from "../store/Slices/LocationSlice";
 import { IOption } from "../Interfaces/OptionInterface";
 
 const useAutocomplete = () => {

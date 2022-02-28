@@ -7,5 +7,7 @@ export const yandexUrl = process.env.REACT_APP_YANDEX_URL;
 export enum Paths {
   city = "db/city",
   point = "db/point",
-  points = "/db/point?cityId=",
+  car = "/db/car",
+  category = "/db/category",
+  rate = "/db/rate",
 }
