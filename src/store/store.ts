@@ -11,7 +11,7 @@ export const store = configureStore({
     modal: modalReducer,
     valid: validReducer,
     form: formReducer,
-    data: locationReducer,
+    location: locationReducer,
     cars: carsReducer,
     rate: rateReducer,
     order: orderReduer,

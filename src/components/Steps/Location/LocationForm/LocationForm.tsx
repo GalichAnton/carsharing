@@ -17,8 +17,8 @@ const getOptionsByKey =
   });
 
 const mapState = (state: RootState) => ({
-  cities: state.data.cities,
-  points: state.data.points,
+  cities: state.location.cities,
+  points: state.location.points,
   city: state.form.city,
   point: state.form.point,
 });

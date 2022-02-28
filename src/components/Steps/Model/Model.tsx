@@ -1,43 +1,61 @@
 import React, { useEffect } from "react";
 import ModelList from "./ModelList/ModelList";
-import { models } from "./content/Models";
-import { IModel } from "../../../Interfaces/CarInterface";
 import classes from "./Model.module.scss";
 import RadioGroup from "../../UI/Inputs/RadioGroup/RadioGroup";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../hooks/redux/redux-hooks";
 import { validActions } from "../../../store/Slices/ValidSlice";
 import { formActions } from "../../../store/Slices/FormSlice";
-const radioGroup = ["Все модели", "Эконом", "Премиум"];
+import {
+  getCarByCategory,
+  getCars,
+  getCategories,
+} from "../../../store/Slices/CarSlice";
+import { ICar } from "../../../Interfaces/CarInterface";
+import Preloader from "../../UI/Preloader/Preloader";
+import { ICategory } from "../../../Interfaces/CategoryInterface";
+import { orderActions } from "../../../store/Slices/OrderSlice";
 const Model = () => {
   const dispatch = useDispatch();
-  const model = useAppSelector((state) => state.form.model);
-  const category = useAppSelector((state) => state.form.category);
-
+  const { model, category } = useAppSelector((state) => state.form);
+  const { cars, categories } = useAppSelector((state) => state.cars);
   useEffect(() => {
-    dispatch(validActions.setModelStep(Boolean(model)));
-    dispatch(validActions.setMoreStep(Boolean(model)));
+    dispatch(getCars());
+    dispatch(getCategories());
+  }, []);
+  useEffect(() => {
+    dispatch(validActions.setModelStep(Boolean(model.name)));
+    dispatch(validActions.setMoreStep(Boolean(model.name)));
   }, [model]);
-  const handleSelect = (model: IModel) => {
-    dispatch(formActions.setModel(model.modelName));
+
+  const handleSelect = (model: ICar) => {
+    dispatch(formActions.setModel(model));
+    dispatch(orderActions.setOrderItem({ title: "Модель", info: model.name }));
   };
-  const handleButtonChange = (value: string) => {
-    dispatch(formActions.setCategory(value));
+  const handleButtonChange = (category: ICategory) => {
+    dispatch(formActions.setCategory(category));
+    dispatch(getCarByCategory(category.id));
   };
+
   return (
     <section className={classes.model}>
       <div className={classes.model__radio}>
         <RadioGroup
-          buttons={radioGroup}
+          name={"model"}
+          buttons={categories.data}
           selected={category}
           handleChange={handleButtonChange}
         />
       </div>
-      <ModelList
-        models={models}
-        selected={model}
-        onSelectModel={handleSelect}
-      />
+      {cars.status !== "success" ? (
+        <Preloader customText={"Подождите..."} />
+      ) : (
+        <ModelList
+          models={cars.data}
+          selected={model}
+          onSelectModel={handleSelect}
+        />
+      )}
     </section>
   );
 };

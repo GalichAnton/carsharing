@@ -1,7 +1,8 @@
 import React from "react";
 import classes from "./Total.module.scss";
-import { models } from "../Model/content/Models";
+import { useAppSelector } from "../../../hooks/redux/redux-hooks";
 const Total = () => {
+  const model = useAppSelector((state) => state.form.model);
   return (
     <form className={classes.form}>
       <div className={classes.container}>
@@ -16,7 +17,7 @@ const Total = () => {
           </p>
         </div>
         <div className={classes.imageWrapper}>
-          <img className={classes.image} src={models[1].image} />
+          <img className={classes.image} src={model.thumbnail.path} />
         </div>
       </div>
     </form>
