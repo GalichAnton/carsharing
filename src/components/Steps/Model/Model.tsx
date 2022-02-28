@@ -41,7 +41,7 @@ const Model = () => {
     <section className={classes.model}>
       <div className={classes.model__radio}>
         <RadioGroup
-          name={"model"}
+          name={"category"}
           buttons={categories.data}
           selected={category}
           handleChange={handleButtonChange}

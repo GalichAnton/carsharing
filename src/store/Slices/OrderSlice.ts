@@ -15,6 +15,30 @@ const initialState: IOrderSliceState = {
       title: "Модель",
       info: "",
     },
+    {
+      title: "Цвет",
+      info: "",
+    },
+    {
+      title: "Длительность аренды",
+      info: "",
+    },
+    {
+      title: "Тариф",
+      info: "",
+    },
+    {
+      title: "Полный бак",
+      info: "",
+    },
+    {
+      title: "Детское кресло",
+      info: "",
+    },
+    {
+      title: "Правый руль",
+      info: "",
+    },
   ],
 };
 

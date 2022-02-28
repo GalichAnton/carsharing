@@ -23,7 +23,7 @@ const initialState: IFormSliceState = {
   point: {} as IPoint,
   model: {} as ICar,
   category: {} as ICategory,
-  color: "Любой",
+  color: "",
   dateFrom: "",
   dateTo: "",
   rate: {} as IRate,
@@ -33,7 +33,7 @@ const initialState: IFormSliceState = {
       title: "Детское кресло, 200р",
       value: "Детское кресло",
       id: 1,
-      isChecked: true,
+      isChecked: false,
     },
     {
       title: "Правый руль, 1600р",

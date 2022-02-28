@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { formActions } from "../../store/Slices/FormSlice";
 import { validActions } from "../../store/Slices/ValidSlice";
 import { modalActions } from "../../store/Slices/ModalSlice";
+import { orderActions } from "../../store/Slices/OrderSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Header = () => {
   const handleReset = () => {
     dispatch(formActions.resetForm());
     dispatch(validActions.resetValid());
+    dispatch(orderActions.resetOrder());
   };
   return (
     <header className={classes.header}>

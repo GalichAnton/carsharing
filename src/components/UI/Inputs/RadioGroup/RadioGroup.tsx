@@ -21,9 +21,10 @@ const RadioGroup: FC<IRadioGroupProps> = ({
       return selected.rateTypeId.name === button.rateTypeId.name;
     } else if (name === "color") {
       return selected === button;
-    } else {
+    } else if (name === "category") {
       return selected.name === button.name;
     }
+    return false;
   };
 
   return (

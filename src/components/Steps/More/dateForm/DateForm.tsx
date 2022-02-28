@@ -5,9 +5,12 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../../hooks/redux/redux-hooks";
 import { validActions } from "../../../../store/Slices/ValidSlice";
 import { formActions } from "../../../../store/Slices/FormSlice";
+import { dateCalc } from "../../../../utils/DateCalc";
+import { orderActions } from "../../../../store/Slices/OrderSlice";
 const DateForm = () => {
   const dispatch = useDispatch();
   const { dateFrom, dateTo } = useAppSelector((state) => state.form);
+
   useEffect(() => {
     dispatch(validActions.setMoreStep(Boolean(dateFrom && dateTo)));
     dispatch(validActions.setTotalStep(Boolean(dateFrom && dateTo)));
@@ -17,6 +20,13 @@ const DateForm = () => {
   };
   const handleChangeDateTo = (dateTo: string) => {
     dispatch(formActions.setDateTo(dateTo));
+    const duration = dateCalc(dateFrom, dateTo);
+    dispatch(
+      orderActions.setOrderItem({
+        title: "Длительность аренды",
+        info: duration,
+      })
+    );
   };
   return (
     <form className={classes.container}>
