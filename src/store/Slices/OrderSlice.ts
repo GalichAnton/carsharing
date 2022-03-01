@@ -54,6 +54,14 @@ export const orderSlice = createSlice({
     resetOrder(state) {
       return { ...state, ...initialState };
     },
+    resetModelOrder(state) {
+      return {
+        ...state,
+        orderItems: state.orderItems.map((item, i) =>
+          i > 0 ? { title: item.title, info: "" } : item
+        ),
+      };
+    },
   },
 });
 

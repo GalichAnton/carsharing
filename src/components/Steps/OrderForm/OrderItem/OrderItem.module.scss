@@ -15,12 +15,11 @@
   font-weight: 300;
   line-height: 16px;
   margin: 0;
+  white-space: nowrap;
 }
 
 .info {
-  min-width: 100px;
-  padding-left: 15px;
-  text-align: right;
+  min-width: 110px;
   color: $main-dark-grey;
   font-weight: 300;
   font-size: 14px;

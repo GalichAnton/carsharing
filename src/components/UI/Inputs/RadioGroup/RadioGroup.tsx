@@ -17,13 +17,10 @@ const RadioGroup: FC<IRadioGroupProps> = ({
   direction = "horizontal",
 }) => {
   const setSelected = (button: any) => {
-    if (name === "rate" && selected.rateTypeId) {
+    if (name === "rate" && selected.rateTypeId)
       return selected.rateTypeId.name === button.rateTypeId.name;
-    } else if (name === "color") {
-      return selected === button;
-    } else if (name === "category") {
-      return selected.name === button.name;
-    }
+    if (name === "color") return selected === button;
+    if (name === "category") return selected.name === button.name;
     return false;
   };
 

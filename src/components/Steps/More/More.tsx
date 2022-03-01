@@ -17,11 +17,15 @@ const mapState = (state: RootState) => ({
   options: state.form.moreOptions,
   rates: state.rate.rates,
 });
+const titles = ["Полный бак", "Детское кресло", "Правый руль"];
 const More = () => {
   const dispatch = useDispatch();
   const { colors, color, rate, options, rates } = useAppSelector(mapState);
   useEffect(() => {
     dispatch(getRates());
+    dispatch(
+      orderActions.setOrderItem({ title: "Тариф", info: rate.rateTypeId.name })
+    );
   }, []);
   const handleColorChange = (value: string) => {
     dispatch(formActions.setColor(value));
@@ -35,31 +39,12 @@ const More = () => {
   };
   const handleCheckboxChange = (id: number) => {
     dispatch(formActions.setOptions(id));
-    if (id === 0) {
-      console.log(id);
-      dispatch(
-        orderActions.setOrderItem({
-          title: "Полный бак",
-          info: !options[0].isChecked ? "Да" : "",
-        })
-      );
-    }
-    if (id === 1) {
-      dispatch(
-        orderActions.setOrderItem({
-          title: "Детское кресло",
-          info: !options[1].isChecked ? "Да" : "",
-        })
-      );
-    }
-    if (id === 2) {
-      dispatch(
-        orderActions.setOrderItem({
-          title: "Правый руль",
-          info: !options[2].isChecked ? "Да" : "",
-        })
-      );
-    }
+    dispatch(
+      orderActions.setOrderItem({
+        title: titles[id],
+        info: !options[id].isChecked ? "Да" : "",
+      })
+    );
   };
   return (
     <section className={classes.more}>

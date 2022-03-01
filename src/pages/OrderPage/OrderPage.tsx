@@ -22,11 +22,7 @@ const OrderPage = () => {
         <BreadCrumbs items={crumbItems} />
         <div className={classes.wrapper}>
           <Outlet />
-          <OrderForm
-            orderItems={orderItem}
-            startPrice={5000}
-            endPrice={10000}
-          />
+          <OrderForm orderItems={orderItem} />
         </div>
         <Modal />
       </div>

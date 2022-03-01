@@ -16,6 +16,7 @@ interface IFormSliceState {
   dateTo: string;
   rate: IRate;
   moreOptions: ICheckbox[];
+  price: number;
 }
 
 const initialState: IFormSliceState = {
@@ -26,7 +27,15 @@ const initialState: IFormSliceState = {
   color: "",
   dateFrom: "",
   dateTo: "",
-  rate: {} as IRate,
+  rate: {
+    id: "60b958582aed9a0b9b7ed3d6",
+    price: 1500,
+    rateTypeId: {
+      unit: "сутки",
+      name: "Суточный",
+      id: "5e26a082099b810b946c5d83",
+    },
+  },
   moreOptions: [
     { title: "Полный бак, 500р", value: "Полный бак", id: 0, isChecked: false },
     {
@@ -42,6 +51,7 @@ const initialState: IFormSliceState = {
       isChecked: false,
     },
   ],
+  price: 0,
 };
 
 export const formSlice = createSlice({
@@ -78,6 +88,9 @@ export const formSlice = createSlice({
           ? { ...option, isChecked: !option.isChecked }
           : option
       );
+    },
+    setPrice(state, action: PayloadAction<number>) {
+      state.price = action.payload;
     },
     resetForm(state) {
       return { ...state, ...initialState };

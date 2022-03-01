@@ -30,6 +30,7 @@ const Model = () => {
 
   const handleSelect = (model: ICar) => {
     dispatch(formActions.setModel(model));
+    dispatch(orderActions.resetModelOrder());
     dispatch(orderActions.setOrderItem({ title: "Модель", info: model.name }));
   };
   const handleButtonChange = (category: ICategory) => {
