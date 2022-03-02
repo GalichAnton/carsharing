@@ -34,11 +34,9 @@ const OrderForm: FC<IOrderFormProps> = () => {
             )
         )}
 
-        {totalPrice !== 0 && (
-          <div>
-            <Price totalPrice={totalPrice} />
-          </div>
-        )}
+        <div>
+          <Price totalPrice={totalPrice} />
+        </div>
 
         <Button
           disabled={setButtonDisable(location.pathname)}

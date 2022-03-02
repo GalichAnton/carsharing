@@ -2,12 +2,8 @@ import { useAppSelector } from "./redux/redux-hooks";
 import { useNavigate } from "react-router-dom";
 import { modalActions } from "../store/Slices/ModalSlice";
 import { useDispatch } from "react-redux";
-enum Paths {
-  location = "/order/location",
-  model = "/order/model",
-  more = "/order/more",
-  total = "/order/total",
-}
+import { LocalPaths } from "../Paths/LocalPaths";
+
 const useButtonState = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,13 +15,13 @@ const useButtonState = () => {
   };
   const setButtonTitle = (location: string) => {
     switch (location) {
-      case Paths.location:
+      case LocalPaths.location:
         return "Выбрать модель";
-      case Paths.model:
+      case LocalPaths.model:
         return "Дополнительно";
-      case Paths.more:
+      case LocalPaths.more:
         return "Итого";
-      case Paths.total:
+      case LocalPaths.total:
         return "Заказать";
       default:
         return "Отменить";
@@ -33,13 +29,13 @@ const useButtonState = () => {
   };
   const setButtonDisable = (location: string) => {
     switch (location) {
-      case Paths.location:
+      case LocalPaths.location:
         return !locationStep;
-      case Paths.model:
+      case LocalPaths.model:
         return !modelStep;
-      case Paths.more:
+      case LocalPaths.more:
         return !moreStep;
-      case Paths.total:
+      case LocalPaths.total:
         return !totalStep;
       default:
         return true;
@@ -47,13 +43,13 @@ const useButtonState = () => {
   };
   const setHandleOnclick = (location: string) => {
     switch (location) {
-      case Paths.location:
-        return () => navigate(Paths.model);
-      case Paths.model:
-        return () => navigate(Paths.more);
-      case Paths.more:
-        return () => navigate(Paths.total);
-      case Paths.total:
+      case LocalPaths.location:
+        return () => navigate(LocalPaths.model);
+      case LocalPaths.model:
+        return () => navigate(LocalPaths.more);
+      case LocalPaths.more:
+        return () => navigate(LocalPaths.total);
+      case LocalPaths.total:
         return () => handleOpenOrderModal();
       default:
         break;

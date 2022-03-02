@@ -8,7 +8,7 @@ const Price: FC<IPrice> = ({ totalPrice }) => {
     <div className={classes.price}>
       <h5 className={classes.title}>Цена:</h5>
 
-      <h3 className={classes.number}>{totalPrice}</h3>
+      <h3 className={classes.number}>{`${totalPrice} ₽`}</h3>
     </div>
   );
 };

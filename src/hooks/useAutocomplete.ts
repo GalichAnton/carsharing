@@ -25,7 +25,7 @@ const useAutocomplete = () => {
       dispatch(
         orderActions.setOrderItem({
           title: "Пункт выдачи",
-          info: `${name} 
+          info: `${name}  \n 
           ${option.value}`,
         })
       );

@@ -10,7 +10,7 @@ const OrderItem: FC<IOrderItem> = ({ title, info }) => {
     <div className={classes.container}>
       <h3 className={classes.title}>{title}</h3>
       <span className={classes.dots}></span>
-      <span className={classes.info}>{info}</span>
+      <p className={classes.info}>{info}</p>
     </div>
   );
 };

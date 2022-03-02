@@ -19,21 +19,23 @@
 }
 
 .info {
-  min-width: 110px;
+  min-width: min-content;
   color: $main-dark-grey;
   font-weight: 300;
   font-size: 14px;
   margin: 0;
+  text-align: right;
+  letter-spacing: 0.5px;
 }
 
 .dots {
-  margin: 0 12px;
-  flex: 0 1 auto;
+  flex: 1 1;
   min-width: 30px;
   font-size: 14px;
   line-height: 16px;
-  color: #999;
+  color: $main-dark-grey;
   align-self: flex-end;
+  padding: 0 5px;
 
   &::before {
     display: block;
