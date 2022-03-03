@@ -10,7 +10,12 @@ import { orderActions } from "../../../../store/Slices/OrderSlice";
 const DateForm = () => {
   const dispatch = useDispatch();
   const { dateFrom, dateTo } = useAppSelector((state) => state.form);
-
+  useEffect(() => {
+    return () => {
+      dispatch(formActions.setDateFrom(""));
+      dispatch(formActions.setDateTo(""));
+    };
+  }, []);
   useEffect(() => {
     dispatch(validActions.setMoreStep(Boolean(dateFrom && dateTo)));
     dispatch(validActions.setTotalStep(Boolean(dateFrom && dateTo)));
