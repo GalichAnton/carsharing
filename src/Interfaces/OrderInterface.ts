@@ -21,8 +21,8 @@ export interface IOrder {
   };
   carId: ICar;
   color: string;
-  dateFrom: string;
-  dateTo: string;
+  dateFrom: number;
+  dateTo: number;
   rateId: IRate;
   price: number;
   isFullTank: boolean;

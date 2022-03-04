@@ -14,6 +14,11 @@ const OrderForm = () => {
     useButtonState();
   const orderItems = useAppSelector((state) => state.order.orderItems);
   const totalPrice = useAppSelector((state) => state.form.price);
+  const orderPrice = useAppSelector((state) => state.order.order.data.price);
+  const setPrice = () => {
+    if (orderPrice) return orderPrice;
+    else return totalPrice;
+  };
   const { calcPrice } = usePrice();
   const { orderId } = useParams();
   useEffect(() => {
@@ -32,7 +37,7 @@ const OrderForm = () => {
         )}
 
         <div>
-          <Price totalPrice={totalPrice} />
+          <Price totalPrice={setPrice()} />
         </div>
 
         <Button

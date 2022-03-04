@@ -19,14 +19,6 @@ const Modal: FC<IModalProps> = ({ handleSubmit }) => {
     [classes.active]: isOpen,
   });
 
-  const handleClose = () => {
-    dispatch(modalActions.setOpenModal(false));
-  };
-
-  const handleClick = () => {
-    handleSubmit();
-  };
-
   useEffect(() => {
     if (status === "success") {
       navigate(`/order/${data.id}`);
@@ -42,13 +34,13 @@ const Modal: FC<IModalProps> = ({ handleSubmit }) => {
             background={"linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%)"}
             className={classes.button}
             title="Подтвердить"
-            onClick={handleClick}
+            onClick={() => handleSubmit()}
           />
           <Button
             background={"linear-gradient(90deg, #493013 0%, #7b0c3b 100%)"}
             className={classes.button__close}
             title="Вернуться"
-            onClick={handleClose}
+            onClick={() => dispatch(modalActions.setOpenModal(false))}
           />
         </div>
       </div>

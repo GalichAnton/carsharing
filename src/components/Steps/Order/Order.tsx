@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import classes from "./Order.module.scss";
 import { useAppSelector } from "../../../hooks/redux/redux-hooks";
-import { dateParser } from "../../../utils/DateParser";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOrder } from "../../../store/Slices/OrderSlice";
 import Preloader from "../../UI/Preloader/Preloader";
 import { useRecoveryOrder } from "../../../hooks/useRecoveryOrder";
+import { dateParser } from "../../../utils/DateParser";
 const Order = () => {
   const dispatch = useDispatch();
   const { orderId } = useParams();
   const { recoveryOrder } = useRecoveryOrder();
   const { data: order, status } = useAppSelector((state) => state.order.order);
-
   useEffect(() => {
     if (status === "idle" && orderId) {
       dispatch(getOrder(orderId));
@@ -48,7 +47,9 @@ const Order = () => {
             )}
             <p className={classes.textBold}>
               Доступен с{" "}
-              <span className={classes.text}>{dateParser(order.dateFrom)}</span>
+              <span className={classes.text}>
+                {dateParser(new Date(order.dateFrom).toDateString())}
+              </span>
             </p>
           </div>
           <div className={classes.imageWrapper}>

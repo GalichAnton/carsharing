@@ -1,6 +1,11 @@
-export const dateCalc = (dateForm: string, dateTo: string) => {
-  const dateFromNumber = Date.parse(dateForm);
-  const dateToNumber = Date.parse(dateTo);
+export const dateCalc = (
+  dateForm: string | number,
+  dateTo: string | number
+) => {
+  const dateFromNumber =
+    typeof dateForm === "string" ? Date.parse(dateForm) : dateForm;
+  const dateToNumber = typeof dateTo === "string" ? Date.parse(dateTo) : dateTo;
+
   if (dateToNumber > dateFromNumber) {
     const time = dateToNumber - dateFromNumber;
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
