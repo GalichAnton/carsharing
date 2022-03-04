@@ -3,4 +3,5 @@ export enum LocalPaths {
   model = "/order/model",
   more = "/order/more",
   total = "/order/total",
+  order = "/order/:orderId",
 }

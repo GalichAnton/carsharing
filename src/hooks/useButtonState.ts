@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { modalActions } from "../store/Slices/ModalSlice";
 import { useDispatch } from "react-redux";
 import { LocalPaths } from "../Paths/LocalPaths";
+import { formActions } from "../store/Slices/FormSlice";
+import { validActions } from "../store/Slices/ValidSlice";
+import { orderActions } from "../store/Slices/OrderSlice";
 
 const useButtonState = () => {
   const dispatch = useDispatch();
@@ -12,6 +15,12 @@ const useButtonState = () => {
   );
   const handleOpenOrderModal = () => {
     dispatch(modalActions.setOpenModal(true));
+  };
+  const handleReset = () => {
+    navigate(LocalPaths.location);
+    dispatch(formActions.resetForm());
+    dispatch(validActions.resetValid());
+    dispatch(orderActions.resetOrder());
   };
   const setButtonTitle = (location: string) => {
     switch (location) {
@@ -38,7 +47,7 @@ const useButtonState = () => {
       case LocalPaths.total:
         return !totalStep;
       default:
-        return true;
+        return false;
     }
   };
   const setHandleOnclick = (location: string) => {
@@ -52,7 +61,7 @@ const useButtonState = () => {
       case LocalPaths.total:
         return () => handleOpenOrderModal();
       default:
-        break;
+        return () => handleReset();
     }
   };
   return { setButtonTitle, setButtonDisable, setHandleOnclick };

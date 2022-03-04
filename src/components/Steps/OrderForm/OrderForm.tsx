@@ -1,24 +1,21 @@
-import React, { FC, useEffect } from "react";
+import React, { useEffect } from "react";
 import classes from "./OrderForm.module.scss";
 import OrderItem from "./OrderItem/OrderItem";
 import Price from "./Price/Price";
 import Button from "../../UI/Button/Button";
-import { IOrderItem } from "../../../Interfaces/OrderInterface";
 import { useAppSelector } from "../../../hooks/redux/redux-hooks";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import useButtonState from "../../../hooks/useButtonState";
 import usePrice from "../../../hooks/usePrice";
-interface IOrderFormProps {
-  orderItems: IOrderItem[];
-}
 
-const OrderForm: FC<IOrderFormProps> = () => {
+const OrderForm = () => {
   const location = useLocation();
   const { setButtonDisable, setButtonTitle, setHandleOnclick } =
     useButtonState();
   const orderItems = useAppSelector((state) => state.order.orderItems);
   const totalPrice = useAppSelector((state) => state.form.price);
   const { calcPrice } = usePrice();
+  const { orderId } = useParams();
   useEffect(() => {
     calcPrice();
   }, [orderItems]);
@@ -42,6 +39,11 @@ const OrderForm: FC<IOrderFormProps> = () => {
           disabled={setButtonDisable(location.pathname)}
           title={setButtonTitle(location.pathname)}
           className={classes.button}
+          background={
+            location.pathname === `/order/${orderId}`
+              ? "linear-gradient(90deg, #493013 0%, #7B0C3B 100%)"
+              : ""
+          }
           onClick={setHandleOnclick(location.pathname)}
         />
       </div>
