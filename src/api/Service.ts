@@ -57,9 +57,10 @@ export default class Service {
     return api.get<IOrderResponse>(`${ApiPaths.order}${orderId}`);
   }
 
-  static async deleteOrder(
-    orderId: string
-  ): Promise<AxiosResponse<IOrderResponse>> {
-    return api.delete<IOrderResponse>(`${ApiPaths.order}${orderId}`);
+  static async cancelOrder(order: IOrder) {
+    return api.put(`${ApiPaths.order}${order.id}`, {
+      ...order,
+      orderStatusId: { name: "Отмененые", id: "5e26a1f5099b810b946c5d8c" },
+    });
   }
 }
