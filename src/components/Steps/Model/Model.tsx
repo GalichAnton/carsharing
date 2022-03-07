@@ -34,6 +34,7 @@ const Model = () => {
     dispatch(formActions.setPrice(0));
     dispatch(formActions.setDateFrom(""));
     dispatch(formActions.setDateTo(""));
+    dispatch(validActions.setTotalStep(false));
     dispatch(orderActions.setOrderItem({ title: "Модель", info: model.name }));
   };
   const handleButtonChange = (category: ICategory) => {

@@ -56,4 +56,10 @@ export default class Service {
   ): Promise<AxiosResponse<IOrderResponse>> {
     return api.get<IOrderResponse>(`${ApiPaths.order}${orderId}`);
   }
+
+  static async deleteOrder(
+    orderId: string
+  ): Promise<AxiosResponse<IOrderResponse>> {
+    return api.delete<IOrderResponse>(`${ApiPaths.order}${orderId}`);
+  }
 }

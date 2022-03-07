@@ -13,15 +13,11 @@ const Order = () => {
   const { recoveryOrder } = useRecoveryOrder();
   const { data: order, status } = useAppSelector((state) => state.order.order);
   useEffect(() => {
-    if (status === "idle" && orderId) {
-      dispatch(getOrder(orderId));
-    }
-    if (status === "success") {
-      recoveryOrder(order);
-    }
+    if (status === "idle" && orderId) dispatch(getOrder(orderId));
+    if (status === "success") recoveryOrder(order);
   }, [status]);
 
-  if (status === "success") {
+  if (status === "success")
     return (
       <form className={classes.form}>
         <div className={classes.container}>
@@ -58,9 +54,8 @@ const Order = () => {
         </div>
       </form>
     );
-  } else if (status === "loading")
-    return <Preloader customText={"Подождите"} />;
-  else return <h2>Ошибка сервера</h2>;
+  if (status === "loading") return <Preloader customText={"Подождите"} />;
+  return <h2>Ошибка сервера</h2>;
 };
 
 export default Order;

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { LocalPaths } from "../Paths/LocalPaths";
 import { formActions } from "../store/Slices/FormSlice";
 import { validActions } from "../store/Slices/ValidSlice";
-import { orderActions } from "../store/Slices/OrderSlice";
+import { deleteOrder, orderActions } from "../store/Slices/OrderSlice";
 
 const useButtonState = () => {
   const dispatch = useDispatch();
@@ -13,14 +13,16 @@ const useButtonState = () => {
   const { locationStep, modelStep, moreStep, totalStep } = useAppSelector(
     (state) => state.valid
   );
+  const orderId = useAppSelector((state) => state.order.order.data.id);
   const handleOpenOrderModal = () => {
     dispatch(modalActions.setOpenModal(true));
   };
   const handleReset = () => {
-    navigate(LocalPaths.location);
     dispatch(formActions.resetForm());
     dispatch(validActions.resetValid());
     dispatch(orderActions.resetOrder());
+    dispatch(deleteOrder(orderId));
+    navigate(LocalPaths.location);
   };
   const setButtonTitle = (location: string) => {
     switch (location) {

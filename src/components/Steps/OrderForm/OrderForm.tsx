@@ -17,7 +17,7 @@ const OrderForm = () => {
   const orderPrice = useAppSelector((state) => state.order.order.data.price);
   const setPrice = () => {
     if (orderPrice) return orderPrice;
-    else return totalPrice;
+    return totalPrice;
   };
   const { calcPrice } = usePrice();
   const { orderId } = useParams();
