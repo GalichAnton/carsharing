@@ -126,6 +126,21 @@ export const orderSlice = createSlice({
     builder.addCase(getOrder.pending, (state) => {
       state.order.status = "loading";
     });
+    // ==============================
+    builder.addCase(cancelOrder.rejected, (state) => {
+      state.order.status = "rejected";
+    });
+    builder.addCase(cancelOrder.fulfilled, (state, { payload }) => {
+      if (payload) {
+        state.order.data = payload;
+        state.order.status = "success";
+      } else {
+        state.order.status = "rejected";
+      }
+    });
+    builder.addCase(cancelOrder.pending, (state) => {
+      state.order.status = "loading";
+    });
   },
 });
 

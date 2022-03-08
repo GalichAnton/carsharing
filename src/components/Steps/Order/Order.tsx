@@ -22,7 +22,10 @@ const Order = () => {
       <form className={classes.form}>
         <div className={classes.container}>
           <div className={classes.info}>
-            <h2 className={classes.head}>Ваш заказ подтверждён</h2>
+            <h2 className={classes.head}>
+              Ваш заказ{" "}
+              {order.orderStatusId.name === "Новые" ? "подтверждён" : "отменен"}
+            </h2>
             <h2 className={classes.title}>{order.carId.name}</h2>
             <div className={classes.number}>{order.carId.number}</div>
             <p className={classes.textBold}>{order.color}</p>

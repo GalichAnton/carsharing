@@ -22,7 +22,6 @@ const useButtonState = () => {
     dispatch(validActions.resetValid());
     dispatch(orderActions.resetOrder());
     dispatch(cancelOrder(order));
-    navigate(LocalPaths.location);
   };
   const setButtonTitle = (location: string) => {
     switch (location) {

@@ -7,14 +7,20 @@ import { useAppSelector } from "../../../hooks/redux/redux-hooks";
 import { useLocation, useParams } from "react-router-dom";
 import useButtonState from "../../../hooks/useButtonState";
 import usePrice from "../../../hooks/usePrice";
-
+import { RootState } from "../../../store/store";
+const mapState = (state: RootState) => ({
+  orderItems: state.order.orderItems,
+  totalPrice: state.form.price,
+  orderPrice: state.order.order.data.price,
+  orderStatus: state.order.order.data.orderStatusId,
+});
 const OrderForm = () => {
   const location = useLocation();
   const { setButtonDisable, setButtonTitle, setHandleOnclick } =
     useButtonState();
-  const orderItems = useAppSelector((state) => state.order.orderItems);
-  const totalPrice = useAppSelector((state) => state.form.price);
-  const orderPrice = useAppSelector((state) => state.order.order.data.price);
+  const { orderItems, totalPrice, orderPrice, orderStatus } =
+    useAppSelector(mapState);
+
   const setPrice = () => {
     if (orderPrice) return orderPrice;
     return totalPrice;
@@ -40,17 +46,19 @@ const OrderForm = () => {
           <Price totalPrice={setPrice()} />
         </div>
 
-        <Button
-          disabled={setButtonDisable(location.pathname)}
-          title={setButtonTitle(location.pathname)}
-          className={classes.button}
-          background={
-            location.pathname === `/order/${orderId}`
-              ? "linear-gradient(90deg, #493013 0%, #7B0C3B 100%)"
-              : ""
-          }
-          onClick={setHandleOnclick(location.pathname)}
-        />
+        {orderStatus?.name !== "Отмененые" && (
+          <Button
+            disabled={setButtonDisable(location.pathname)}
+            title={setButtonTitle(location.pathname)}
+            className={classes.button}
+            background={
+              location.pathname === `/order/${orderId}`
+                ? "linear-gradient(90deg, #493013 0%, #7B0C3B 100%)"
+                : ""
+            }
+            onClick={setHandleOnclick(location.pathname)}
+          />
+        )}
       </div>
     </form>
   );
