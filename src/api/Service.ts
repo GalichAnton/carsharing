@@ -6,6 +6,7 @@ import { ICarResponse } from "../Interfaces/CarInterface";
 import { ICategoryResponse } from "../Interfaces/CategoryInterface";
 import { IRateResponse } from "../Interfaces/RateInterface";
 import { ApiPaths } from "../Paths/ApiPaths";
+import { IOrder, IOrderResponse } from "../Interfaces/OrderInterface";
 
 export default class Service {
   static async getCity(): Promise<AxiosResponse<ICityResponse>> {
@@ -44,5 +45,22 @@ export default class Service {
 
   static async getRates(): Promise<AxiosResponse<IRateResponse>> {
     return api.get<IRateResponse>(ApiPaths.rate);
+  }
+
+  static async postOrder(order: IOrder) {
+    return api.post(ApiPaths.order, { ...order });
+  }
+
+  static async getOrderById(
+    orderId: string
+  ): Promise<AxiosResponse<IOrderResponse>> {
+    return api.get<IOrderResponse>(`${ApiPaths.order}${orderId}`);
+  }
+
+  static async cancelOrder(order: IOrder) {
+    return api.put(`${ApiPaths.order}${order.id}`, {
+      ...order,
+      orderStatusId: { name: "Отмененые", id: "5e26a1f5099b810b946c5d8c" },
+    });
   }
 }

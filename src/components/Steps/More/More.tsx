@@ -26,6 +26,8 @@ const More = () => {
     dispatch(
       orderActions.setOrderItem({ title: "Тариф", info: rate.rateTypeId.name })
     );
+    dispatch(formActions.setColor(colors[0]));
+    dispatch(orderActions.setOrderItem({ title: "Цвет", info: colors[0] }));
   }, []);
   const handleColorChange = (value: string) => {
     dispatch(formActions.setColor(value));

@@ -11,14 +11,13 @@ const DateForm = () => {
   const dispatch = useDispatch();
   const { dateFrom, dateTo } = useAppSelector((state) => state.form);
   useEffect(() => {
-    return () => {
-      dispatch(formActions.setDateFrom(""));
-      dispatch(formActions.setDateTo(""));
-    };
-  }, []);
-  useEffect(() => {
-    dispatch(validActions.setMoreStep(Boolean(dateFrom && dateTo)));
-    dispatch(validActions.setTotalStep(Boolean(dateFrom && dateTo)));
+    if (dateFrom < dateTo) {
+      dispatch(validActions.setMoreStep(Boolean(dateFrom && dateTo)));
+      dispatch(validActions.setTotalStep(Boolean(dateFrom && dateTo)));
+    } else {
+      dispatch(validActions.setMoreStep(false));
+      dispatch(validActions.setTotalStep(false));
+    }
   }, [dateTo, dateFrom]);
   const handleChangeDateFrom = (dateFrom: string) => {
     dispatch(formActions.setDateFrom(dateFrom));

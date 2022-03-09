@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { modalActions } from "../store/Slices/ModalSlice";
 import { useDispatch } from "react-redux";
 import { LocalPaths } from "../Paths/LocalPaths";
+import { formActions } from "../store/Slices/FormSlice";
+import { validActions } from "../store/Slices/ValidSlice";
+import { cancelOrder, orderActions } from "../store/Slices/OrderSlice";
 
 const useButtonState = () => {
   const dispatch = useDispatch();
@@ -10,8 +13,15 @@ const useButtonState = () => {
   const { locationStep, modelStep, moreStep, totalStep } = useAppSelector(
     (state) => state.valid
   );
+  const order = useAppSelector((state) => state.order.order.data);
   const handleOpenOrderModal = () => {
     dispatch(modalActions.setOpenModal(true));
+  };
+  const handleReset = () => {
+    dispatch(formActions.resetForm());
+    dispatch(validActions.resetValid());
+    dispatch(orderActions.resetOrder());
+    dispatch(cancelOrder(order));
   };
   const setButtonTitle = (location: string) => {
     switch (location) {
@@ -38,7 +48,7 @@ const useButtonState = () => {
       case LocalPaths.total:
         return !totalStep;
       default:
-        return true;
+        return false;
     }
   };
   const setHandleOnclick = (location: string) => {
@@ -52,7 +62,7 @@ const useButtonState = () => {
       case LocalPaths.total:
         return () => handleOpenOrderModal();
       default:
-        break;
+        return () => handleReset();
     }
   };
   return { setButtonTitle, setButtonDisable, setHandleOnclick };
