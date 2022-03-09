@@ -2,35 +2,47 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICheckbox } from "../../Interfaces/CheckBoxInterface";
 import { ICity } from "../../Interfaces/CityInterfaces";
 import { IPoint } from "../../Interfaces/PointInterfaces";
+import { ICar } from "../../Interfaces/CarInterface";
+import { ICategory } from "../../Interfaces/CategoryInterface";
+import { IRate } from "../../Interfaces/RateInterface";
 
 interface IFormSliceState {
   city: ICity;
   point: IPoint;
-  model: string;
-  category: string;
+  model: ICar;
+  category: ICategory;
   color: string;
   dateFrom: string;
   dateTo: string;
-  tax: string;
+  rate: IRate;
   moreOptions: ICheckbox[];
+  price: number;
 }
 
 const initialState: IFormSliceState = {
   city: {} as ICity,
   point: {} as IPoint,
-  model: "",
-  category: "Все модели",
-  color: "Любой",
+  model: {} as ICar,
+  category: {} as ICategory,
+  color: "",
   dateFrom: "",
   dateTo: "",
-  tax: "На сутки, 1999Р/сутки",
+  rate: {
+    id: "60b958582aed9a0b9b7ed3d6",
+    price: 1500,
+    rateTypeId: {
+      unit: "сутки",
+      name: "Суточный",
+      id: "5e26a082099b810b946c5d83",
+    },
+  },
   moreOptions: [
     { title: "Полный бак, 500р", value: "Полный бак", id: 0, isChecked: false },
     {
       title: "Детское кресло, 200р",
       value: "Детское кресло",
       id: 1,
-      isChecked: true,
+      isChecked: false,
     },
     {
       title: "Правый руль, 1600р",
@@ -39,6 +51,7 @@ const initialState: IFormSliceState = {
       isChecked: false,
     },
   ],
+  price: 0,
 };
 
 export const formSlice = createSlice({
@@ -51,10 +64,10 @@ export const formSlice = createSlice({
     setPoint(state, action: PayloadAction<{ name: string; id: string }>) {
       state.point = { ...state.point, ...action.payload };
     },
-    setModel(state, action: PayloadAction<string>) {
+    setModel(state, action: PayloadAction<ICar>) {
       state.model = action.payload;
     },
-    setCategory(state, action: PayloadAction<string>) {
+    setCategory(state, action: PayloadAction<ICategory>) {
       state.category = action.payload;
     },
     setColor(state, action: PayloadAction<string>) {
@@ -66,8 +79,8 @@ export const formSlice = createSlice({
     setDateTo(state, action: PayloadAction<string>) {
       state.dateTo = action.payload;
     },
-    setTax(state, action: PayloadAction<string>) {
-      state.tax = action.payload;
+    setRate(state, action: PayloadAction<IRate>) {
+      state.rate = action.payload;
     },
     setOptions(state, action: PayloadAction<number>) {
       state.moreOptions = state.moreOptions.map((option) =>
@@ -75,6 +88,9 @@ export const formSlice = createSlice({
           ? { ...option, isChecked: !option.isChecked }
           : option
       );
+    },
+    setPrice(state, action: PayloadAction<number>) {
+      state.price = action.payload;
     },
     resetForm(state) {
       return { ...state, ...initialState };
