@@ -49,7 +49,7 @@ export const getAllPoints = createAsyncThunk(
   }
 );
 
-const dataSlice = createSlice({
+const locationSlice = createSlice({
   name: "competitions",
   initialState,
   reducers: {
@@ -105,5 +105,5 @@ const dataSlice = createSlice({
   },
 });
 
-export const dataActions = dataSlice.actions;
-export default dataSlice.reducer;
+export const locationActions = locationSlice.actions;
+export default locationSlice.reducer;
