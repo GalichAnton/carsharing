@@ -3,37 +3,49 @@ import classes from "./RadioGroup.module.scss";
 import RadioButton from "./RadioButton/RadioButton";
 import cn from "classnames";
 interface IRadioGroupProps {
-  buttons: string[];
-  selected: string;
-  handleChange: (value: string) => void;
+  buttons: Array<any>;
+  selected: any;
+  handleChange: (value: any) => void;
   direction?: "vertical" | "horizontal";
+  name: string;
 }
 const RadioGroup: FC<IRadioGroupProps> = ({
   buttons,
   selected,
   handleChange,
+  name,
   direction = "horizontal",
 }) => {
+  const setSelected = (button: any) => {
+    if (name === "rate" && selected.rateTypeId)
+      return selected.rateTypeId.name === button.rateTypeId.name;
+    if (name === "color") return selected === button;
+    if (name === "category") return selected.name === button.name;
+    return false;
+  };
+
   return (
     <form
       className={cn(classes.form, {
         [classes.form__vertical]: direction === "vertical",
       })}
     >
-      {buttons.map((button, i) => (
-        <div
-          key={i}
-          className={cn(classes.radioButton, {
-            [classes.radioButton__vertical]: direction === "vertical",
-          })}
-        >
-          <RadioButton
-            value={button}
-            checked={selected === button}
-            handleChange={handleChange}
-          />
-        </div>
-      ))}
+      {buttons &&
+        buttons.map((button, i) => (
+          <div
+            key={i}
+            className={cn(classes.radioButton, {
+              [classes.radioButton__vertical]: direction === "vertical",
+            })}
+          >
+            <RadioButton
+              name={name}
+              value={button}
+              checked={setSelected(button)}
+              handleChange={handleChange}
+            />
+          </div>
+        ))}
     </form>
   );
 };

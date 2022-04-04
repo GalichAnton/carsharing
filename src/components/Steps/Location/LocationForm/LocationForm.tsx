@@ -3,7 +3,7 @@ import classes from "./LocationForm.module.scss";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../../hooks/redux/redux-hooks";
 import { validActions } from "../../../../store/Slices/ValidSlice";
-import { getCities, getPoints } from "../../../../store/Slices/dataSlice";
+import { getCities, getPoints } from "../../../../store/Slices/LocationSlice";
 import useAutocomplete from "../../../../hooks/useAutocomplete";
 import Autocomplete from "../../../Autocomplete/Autocomplete";
 import { RootState } from "../../../../store/store";
@@ -17,8 +17,8 @@ const getOptionsByKey =
   });
 
 const mapState = (state: RootState) => ({
-  cities: state.data.cities,
-  points: state.data.points,
+  cities: state.location.cities,
+  points: state.location.points,
   city: state.form.city,
   point: state.form.point,
 });

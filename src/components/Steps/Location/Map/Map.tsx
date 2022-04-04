@@ -15,7 +15,7 @@ const mapProperties = {
   iconImageHref: mark,
 };
 const mapStateToProps = (state: RootState) => ({
-  points: state.data.points.data,
+  points: state.location.points.data,
   city: state.form.city.name,
   point: state.form.point.name,
 });

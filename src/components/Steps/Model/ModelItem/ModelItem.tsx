@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import classes from "./ModelItem.module.scss";
-import { IModel } from "../../../../Interfaces/ModelInterface";
+import { ICar } from "../../../../Interfaces/CarInterface";
 import cn from "classnames";
 interface IModelItemProps {
-  model: IModel;
+  model: ICar;
   selected?: boolean;
-  onSelectModel: (model: IModel) => void;
+  onSelectModel: (model: ICar) => void;
 }
 const ModelItem: FC<IModelItemProps> = (props) => {
   const { model, selected, onSelectModel } = props;
@@ -17,19 +17,23 @@ const ModelItem: FC<IModelItemProps> = (props) => {
       })}
     >
       <div className={classes.header}>
-        <h4 className={classes.title}>{model.modelName}</h4>
+        <h4 className={classes.title}>{model.name}</h4>
 
         <div className={classes.modelPrice}>
-          <span>{model.startPrice}</span>
+          <span>{model.priceMin}</span>
 
           <span className={classes.modelPrice__divider}>-</span>
 
-          <span>{model.endPrice}</span>
+          <span>{model.priceMax}</span>
         </div>
       </div>
 
       <div className={classes.imgWrapper}>
-        <img className={classes.img} src={model.image} alt={model.modelName} />
+        <img
+          className={classes.img}
+          src={model.thumbnail.path}
+          alt={model.name}
+        />
       </div>
     </div>
   );

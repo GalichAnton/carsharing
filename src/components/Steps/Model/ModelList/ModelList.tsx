@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import classes from "./ModelList.module.scss";
-import { IModel } from "../../../../Interfaces/ModelInterface";
+import { ICar } from "../../../../Interfaces/CarInterface";
 import ModelItem from "../ModelItem/ModelItem";
 interface IModelListProps {
-  models: IModel[];
-  selected?: string;
-  onSelectModel: (model: IModel) => void;
+  models: ICar[];
+  selected: ICar;
+  onSelectModel: (model: ICar) => void;
 }
 const ModelList: FC<IModelListProps> = ({
   models,
@@ -19,7 +19,7 @@ const ModelList: FC<IModelListProps> = ({
           <ModelItem
             key={i}
             model={model}
-            selected={selected === model.modelName}
+            selected={selected.name === model.name}
             onSelectModel={onSelectModel}
           />
         ))}

@@ -6,6 +6,7 @@ import Location from "../components/Steps/Location/Location";
 import Model from "../components/Steps/Model/Model";
 import More from "../components/Steps/More/More";
 import Total from "../components/Steps/Total/Total";
+import Order from "../components/Steps/Order/Order";
 
 const Router = () => (
   <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -16,6 +17,7 @@ const Router = () => (
         <Route path="model" element={<Model />} />
         <Route path="more" element={<More />} />
         <Route path="total" element={<Total />} />
+        <Route path=":orderId" element={<Order />} />
       </Route>
     </Routes>
   </BrowserRouter>
